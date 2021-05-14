@@ -179,7 +179,7 @@ export const NavBar = () => {
     <Container
       as="nav"
       zIndex={zIndex.low}
-      position="fixed"
+      position="absolute"
       subContainerProps={{ h: 24, pt: 2 }}
     >
       <Grid
