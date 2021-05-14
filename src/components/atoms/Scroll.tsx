@@ -4,7 +4,7 @@ import { Box } from '@chakra-ui/react';
 import Image from 'next/image';
 
 interface ScrollProps {
-  direction: "down" | "up"
+  direction: "down" | "down2" | "up"
 }
 
 export const Scroll = ({ direction }: ScrollProps) => (
@@ -20,7 +20,7 @@ export const Scroll = ({ direction }: ScrollProps) => (
       alt={ui.scroll.alt}
       width={ui.scroll.width}
       height={ui.scroll.height}
-      priority />
+    />
   </Box>
 );
 

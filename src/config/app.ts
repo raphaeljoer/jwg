@@ -33,6 +33,7 @@ export const ui = {
   scroll: {
     src: {
       down: "/assets/ui/scroll-down.svg",
+      down2: "/assets/ui/scroll-down-2.svg",
       up: "/assets/ui/scroll-up.svg"
     },
     width: "145",

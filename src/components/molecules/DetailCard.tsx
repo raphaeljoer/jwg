@@ -16,10 +16,22 @@ export interface DetailCardProps extends BoxProps {
   desc: string;
 };
 
+const getCSSProps = () => {
+  const margin = useBreakpointValue({ base: 24, md: 32, lg: 96 });
+  return {
+    css: {
+      cursor: "pointer",
+      scrollSnapAlign: 'center',
+      '&:first-of-type': { marginLeft: margin },
+      '&:last-of-type': { marginRight: margin },
+    }
+  }
+};
+
 export const DetailCard = ({ name, cover, desc, ...props }: DetailCardProps) => {
 
   return (
-    <Box w={{ base: "xs", lg: "sm" }} borderRadius="xl" overflow="hidden" {...props}>
+    <Box w={{ base: "xs", lg: "sm" }} borderRadius="xl" overflow="hidden" {...getCSSProps()} {...props}>
       {cover && (
         <Flex h={152} borderTopRadius="lg" bgColor="white" align="center" justify="center">
           <Box position="relative">

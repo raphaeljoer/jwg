@@ -8,7 +8,9 @@ export const Tooltip = ({ label, children, ...props }: TooltipProps) => {
     <CkTooltip
       hasArrow
       label={label}
-      bg="blue.600"
+      color="oilblue.10"
+      bg="orange.400"
+      p={2}
       borderRadius="lg"
       {...props}
     >
