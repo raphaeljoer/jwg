@@ -4,6 +4,7 @@ import Hero from "@/components/organism/Hero";
 import NavBar from "@/components/molecules/NavBar";
 import Catalog from "@/components/organism/Catalog";
 import DataImpact from "@/components/molecules/DataImpact";
+import Testimonial from "@/components/organism/Testimonial";
 //resources
 import React from "react";
 //data
@@ -32,6 +33,7 @@ export default function Home() {
       </Hero>
       <Catalog catalogs={catalogs} />
       <DataImpact/>
+      <Testimonial />
     </>
   );
 };
