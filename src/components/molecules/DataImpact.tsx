@@ -9,6 +9,7 @@ import Image from 'next/image';
 import * as CSS from "csstype";
 import Scroll from "../atoms/Scroll";
 import { milestones } from "@/data/static/milestones";
+import { ui } from "@/config/app";
 
 const milestoneProps: CtaProps = {
   upTitleProps: { color: "blue.500", fontSize: 40, fontWeight: 900, textAlign: { base: "center", lg: "left" } },
@@ -113,7 +114,7 @@ export const DataImpact = () => {
           />
         ))}
       </Grid>
-      <Scroll direction="down2" />
+      <Scroll file={ui.scroll.src.dark.down2} />
     </Container>
   )
 };

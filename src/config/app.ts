@@ -32,9 +32,13 @@ export const ui = {
   },
   scroll: {
     src: {
-      down: "/assets/ui/scroll-down.svg",
-      down2: "/assets/ui/scroll-down-2.svg",
-      up: "/assets/ui/scroll-up.svg"
+      light: {
+        down: "/assets/ui/scroll-down-light.svg",
+      },
+      dark: {
+        down: "/assets/ui/scroll-down.svg",
+        down2: "/assets/ui/scroll-down-2.svg",
+      }
     },
     width: "145",
     height: "37",

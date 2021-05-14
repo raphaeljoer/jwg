@@ -6,6 +6,7 @@ import Container from '@/components/molecules/Container';
 //resources
 import React, { cloneElement } from 'react';
 import Image from 'next/image';
+import { ui } from '@/config/app';
 interface HeroProps {
   image: string;
   element: string;
@@ -67,7 +68,7 @@ const Hero = ({ image, element, children, ...props }: HeroProps) => {
 
       {isDesktop && displayHeroPicture(element, image)}
 
-      <Scroll direction="down" />
+      <Scroll file={ui.scroll.src.dark.down} />
     </Container>
 
   )

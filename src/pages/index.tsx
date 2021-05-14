@@ -9,6 +9,7 @@ import Testimonial from "@/components/organism/Testimonial";
 import React from "react";
 //data
 import catalogs from '@/data/static/catalogs';
+import { Partners } from "@/components/organism/Partners";
 
 
 const heroProps = {
@@ -34,6 +35,7 @@ export default function Home() {
       <Catalog catalogs={catalogs} />
       <DataImpact/>
       <Testimonial />
+      <Partners />
     </>
   );
 };

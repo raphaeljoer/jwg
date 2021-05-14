@@ -1,32 +1,33 @@
+export interface IPartners {
+  name: string;
+  imageUrl: string;
+  link: string;
+}
+
 export const partners = [
   {
-    name: 'Prefeitura de Fortaleza',
-    imageUrl: '/img/partners/prefeitura.png',
+    name: 'DNI',
+    imageUrl: '/assets/img/partners/dni.png',
     link: '#',
   },
   {
-    name: 'Governo do Estado do Ceará',
-    imageUrl: '/img/partners/gov-ce.svg',
+    name: 'Flaus',
+    imageUrl: '/assets/img/partners/flaus.png',
     link: '#',
   },
   {
-    name: 'SESC',
-    imageUrl: '/img/partners/sesc.svg',
+    name: 'Gaus',
+    imageUrl: '/assets/img/partners/gauss.png',
     link: '#',
   },
   {
-    name: 'Mesa Brasil Sesc',
-    imageUrl: '/img/partners/mesabr-sesc.svg',
+    name: 'Modefer',
+    imageUrl: '/assets/img/partners/modefer.png',
     link: '#',
   },
   {
-    name: 'Mauricio de Nassau',
-    imageUrl: '/img/partners/mauricio-de-nassau.svg',
-    link: '#',
-  },
-  {
-    name: 'AIESEC',
-    imageUrl: '/img/partners/aiesec.svg',
+    name: 'Roltens',
+    imageUrl: '/assets/img/partners/roltens.png',
     link: '#',
   }
 ];

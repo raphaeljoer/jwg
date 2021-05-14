@@ -4,10 +4,10 @@ import { Box } from '@chakra-ui/react';
 import Image from 'next/image';
 
 interface ScrollProps {
-  direction: "down" | "down2" | "up"
+  file: string;
 }
 
-export const Scroll = ({ direction }: ScrollProps) => (
+export const Scroll = ({file}: ScrollProps) => (
   <Box
     position="absolute"
     bottom={0}
@@ -16,7 +16,7 @@ export const Scroll = ({ direction }: ScrollProps) => (
     transform={"translateX(-50%) translateY(99%)"}
   >
     <Image
-      src={ui.scroll.src[direction]}
+      src={file}
       alt={ui.scroll.alt}
       width={ui.scroll.width}
       height={ui.scroll.height}
