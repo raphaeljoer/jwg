@@ -11,14 +11,9 @@ import React from "react";
 import Link from "next/link";
 import Button from "../atoms/Button";
 import { FiArchive } from "react-icons/fi";
-
-interface ICatalog {
-  id: string;
-  cover: string;
-  name: string;
-  desc: string;
-  url: string;
-}
+import ICatalog from "@/@types/catalog";
+import Tooltip from "../atoms/Tooltip";
+import { getFormattedDate } from "@/utils/date";
 
 export interface ICatalogProps {
   catalogs: ICatalog[];
@@ -34,11 +29,13 @@ export const Catalog = ({ catalogs }: ICatalogProps) => {
 
       {catalogs && (
         <Carousel spacing={8} scrollStep={384}>
-          {catalogs.map(({ id, name, desc, cover, url }) => (
+          {catalogs.map(({ id, name, url, partner, releaseDate }) => (
             <DetailCard
+              key={id}
               name={name}
-              cover={cover}
-              desc={desc}
+              releaseDate={releaseDate}
+              cover={partner.logo}
+              desc={`${partner.name} ${getFormattedDate({ date: releaseDate, format: "YYYY" })}`}
               variant="carousel"
               button={{
                 label: "Baixar catálogo",

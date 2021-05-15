@@ -1,24 +1,33 @@
-import React from "react";
+//chakra-ui
+import {
+  Badge,
+  Box,
+  BoxProps,
+  Heading,
+  useBreakpointValue,
+  Image as CkImage,
+  Flex,
+  Icon
+} from "@chakra-ui/react"
+
+//core components
 import Text from '@/components/atoms/Text';
-import { Badge, Box, BoxProps, Heading, useBreakpointValue, Image as CkImage, Flex, Icon } from "@chakra-ui/react"
-import { Button } from "../atoms/Button";
-import { FiDownload } from "react-icons/fi";
+import Button from "@/components/atoms/Button";
+import Tooltip from "@/components/atoms/Tooltip";
 
+//resources
+import React from "react";
 import Link from "next/link";
+import { FiDownload } from "react-icons/fi";
+import { getFormattedDate, isSameDate } from "@/utils/date";
 
-export interface DetailProps {
-  title: string;
-  description: string;
-}
-interface IButton {
-  label: string;
-  link: string;
-}
-
+//types
+import IButton from "@/@types/button";
 export interface DetailCardProps extends BoxProps {
   name: string;
   cover: string;
   desc: string;
+  releaseDate: string;
   button: IButton;
   variant?: "carousel"
 };
@@ -26,21 +35,42 @@ export interface DetailCardProps extends BoxProps {
 const getCSSProps = () => {
   const margin = useBreakpointValue({ base: 24, md: 32, lg: 96 });
   return {
-    cursor: "pointer",
     scrollSnapAlign: 'center',
     '&:first-of-type': { marginLeft: margin },
     '&:last-of-type': { marginRight: margin },
   }
 };
 
-export const DetailCard = ({ name, cover, desc, button, variant, ...props }: DetailCardProps) => {
-
+export const DetailCard = ({
+  name,
+  cover,
+  desc,
+  releaseDate,
+  button,
+  variant,
+  ...props
+}: DetailCardProps) => {
+  const isLongName = name.length > 23;
   const isCarousel = variant === "carousel";
+  const isLaunch = isSameDate({ dateToCompare: releaseDate, range: "month" })
 
   return (
-    <Box w={{ base: "xs", lg: "sm" }} textDecoration="none" borderRadius="xl" overflow="hidden" css={isCarousel && getCSSProps()} {...props}>
+    <Box
+      w={{ base: "xs", lg: "sm" }}
+      textDecoration="none"
+      borderRadius="xl"
+      overflow="hidden"
+      css={isCarousel && getCSSProps()}
+      {...props}
+    >
       {cover && (
-        <Flex h={152} borderTopRadius="lg" bgColor="white" align="center" justify="center">
+        <Flex
+          h={152}
+          borderTopRadius="lg"
+          bgColor="white"
+          align="center"
+          justify="center"
+        >
           <Box position="relative">
             <CkImage
               src={cover}
@@ -54,15 +84,18 @@ export const DetailCard = ({ name, cover, desc, button, variant, ...props }: Det
       )}
 
       <Box p={6} bgColor="oilblue.500" borderBottomRadius="xl">
+
         <Badge borderRadius="md" mt={-16} bgColor="orange.500" color="white" p={2} textTransform="uppercase">
-          Lançamento
+          {isLaunch ? "LANÇAMENTO" : getFormattedDate({ date: releaseDate, format: "MMMM / YYYY" })}
         </Badge>
 
-        <Heading as="h3" fontSize={32} color="oilblue.10" isTruncated mb={2}>
-          {name}
-        </Heading>
+        <Tooltip label={name} placement="top-end" isDisabled={!isLongName}>
+          <Heading as="h3" fontSize={28} color="oilblue.10" isTruncated mb={2}>
+            {name}
+          </Heading>
+        </Tooltip>
 
-        <Text fontSize={16} color="oilblue.50" mb={6}>
+        <Text fontSize={18} color="oilblue.50" mb={6}>
           {desc}
         </Text>
 
@@ -75,7 +108,7 @@ export const DetailCard = ({ name, cover, desc, button, variant, ...props }: Det
             color="white"
             bgColor="orange.500"
             border="none"
-            _hover={{ bgColor: "transparent", color: "orange.500", border: "4px" }}
+            _hover={{ bgColor: "transparent", color: "orange.500", border: "2px" }}
             h={{ base: 14, xl: 16 }}
             w="full"
             fontWeight={500}

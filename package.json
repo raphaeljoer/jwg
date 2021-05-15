@@ -5,7 +5,9 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "lint": "eslint src",
+    "codegen": "graphql-codegen --config codegen.yml"
   },
   "dependencies": {
     "@chakra-ui/icons": "^1.0.8",
@@ -19,6 +21,7 @@
     "framer-motion": "^4",
     "graphql": "^15.5.0",
     "graphql-request": "^3.4.0",
+    "moment": "^2.29.1",
     "next": "10.0.9",
     "nextjs-progressbar": "^0.0.9",
     "nodemailer": "^6.5.0",
@@ -31,13 +34,13 @@
     "yup": "^0.32.9"
   },
   "devDependencies": {
-    "@graphql-codegen/cli": "1.21.3",
+    "@graphql-codegen/cli": "^1.21.4",
     "@graphql-codegen/typescript": "1.21.1",
     "@graphql-codegen/typescript-operations": "1.17.15",
-    "@typescript-eslint/eslint-plugin": "^4.23.0",
     "@types/node": "^14.14.37",
     "@types/nodemailer": "^6.4.1",
     "@types/react": "^17.0.5",
+    "@typescript-eslint/eslint-plugin": "^4.23.0",
     "eslint": "^7.23.0",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-config-prettier": "^8.1.0",

@@ -8,9 +8,12 @@ import Testimonial from "@/components/organism/Testimonial";
 //resources
 import React from "react";
 //data
-import catalogs from '@/data/static/catalogs';
 import { Partners } from "@/components/organism/Partners";
 import Footer from "@/components/molecules/Footer";
+import { GetStaticProps } from "next";
+import { getCatalogs } from "@/data/request/catalogs";
+import { next } from "@/config/app";
+import ICatalog from "@/@types/catalog";
 
 
 const heroProps = {
@@ -26,8 +29,11 @@ const ctaProps = {
     onClick: () => location.href = "https://api.whatsapp.com/send?phone=5585988023938&text=Ol%C3%A1%20estou%20testando%20o%20envio%20de%20mensagem%20pelo%20site%20da%20JWG'"
   }
 }
+interface IHomeProps {
+  catalogs: ICatalog[];
+};
 
-export default function Home() {
+export default function Home({ catalogs }: IHomeProps) {
   return (
     <>
       <NavBar />
@@ -41,4 +47,13 @@ export default function Home() {
       <Footer />
     </>
   );
+};
+
+export const getStaticProps: GetStaticProps = async () => {
+  return {
+    props: {
+      catalogs: await getCatalogs()
+    },
+    revalidate: next.revalidate.oneMinute
+  };
 };

@@ -1,24 +1,11 @@
-export const app = {
-  smtp: {
-    sendgrid: {
-      api: {
-        host: process.env.IMH_APP_SENDGRID_API_HOST || "",
-        key: process.env.IMH_APP_SENDGRID_API_KEY || ""
-      }
-    },
-    gmail: {
-      host: process.env.IMH_APP_GMAIL_SMTP_HOST || "smtp.gmail.com",
-      port: Number(process.env.IMH_APP_GMAIL_SMTP_PORT) || 587,
-      user: process.env.IMH_APP_GMAIL_SMTP_USER || "",
-      password: process.env.IMH_APP_GMAIL_SMTP || "",
-    }
-  },
-  next: {
-    revalidate: 60
-  },
-  graphql: {
-    GRAPHQL_HOST: process.env.IMH_GRAPHCMS_GRAPHQL_HOST || '',
-    GRAPHQL_TOKEN: `Bearer ${process.env.IMH_GRAPHCMS_GRAPHQL_TOKEN || ''}`,
+export const graphql = {
+  GRAPHQL_HOST: process.env.JWG_GRAPHQL_HOST || '',
+  GRAPHQL_TOKEN: `Bearer ${process.env.JWG_GRAPHQL_TOKEN || ''}`,
+};
+
+export const next = {
+  revalidate: {
+   oneMinute: 60
   }
 };
 

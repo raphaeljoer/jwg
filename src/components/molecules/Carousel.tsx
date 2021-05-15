@@ -23,6 +23,8 @@ interface CarouselProps extends FlexProps {
   title?: string;
 }
 
+
+
 const displayFade = () => {
   <>
     <Box
@@ -47,6 +49,8 @@ const displayFade = () => {
   </>
 };
 
+
+
 export const Carousel = ({ scrollStep, spacing, title, fade, tooltipProps, buttonProps, children, ...props }: CarouselProps) => {
 
   const partnersRef = useRef<HTMLDivElement>(null);
@@ -60,21 +64,23 @@ export const Carousel = ({ scrollStep, spacing, title, fade, tooltipProps, butto
     partnersRef.current?.scrollBy(-scrollStep, 0);
   }, []);
 
+  const displayNavigation = (tooltipProps: object | undefined) => (
+    <Box>
+      <Tooltip label="Voltar" placement="top" {...tooltipProps}>
+        <IconButton colorScheme="oilblue" aria-label="Scroll Back" mr={2} icon={<IoIosArrowBack />} onClick={handleScrollBack} />
+      </Tooltip>
+      <Tooltip label="Próximo" placement="top" {...tooltipProps}>
+        <IconButton colorScheme="oilblue" aria-label="Scroll Forward" icon={<IoIosArrowForward />} onClick={handleScrollNext} />
+      </Tooltip>
+    </Box>
+  );
+
   return (
     <>
       <Container>
-        <Flex justifyContent={isTablet ? 'space-between' : 'center'} zIndex={20} mb={12}>
+        <Flex justifyContent={{ base: "center", md: "space-between" }} zIndex={20} mb={12}>
           <Heading fontSize={32} fontWeight="700" color="oilblue.500">{title}</Heading>
-          {isTablet && (
-            <Box>
-              <Tooltip label={buttonProps ? buttonProps.labelLeft : "Voltar"} placement="top" {...tooltipProps}>
-                <IconButton colorScheme="oilblue" aria-label="Scroll Back" mr={2} icon={<IoIosArrowBack />} onClick={handleScrollBack} />
-              </Tooltip>
-              <Tooltip label={buttonProps ? buttonProps.labelRight : "Próximo"} placement="top" {...tooltipProps}>
-                <IconButton colorScheme="oilblue" aria-label="Scroll Forward" icon={<IoIosArrowForward />} onClick={handleScrollNext} />
-              </Tooltip>
-            </Box>
-          )}
+          {isTablet && (displayNavigation(tooltipProps))}
         </Flex>
       </Container>
 

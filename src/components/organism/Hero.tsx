@@ -69,6 +69,7 @@ const Hero = ({ element, image, children, ...props }: HeroProps) => {
         display: "flex",
         alignContent: "space-between"
       }}
+      {...props}
     >
 
       {cloneElement(children, { ...childrenProps, ...children.props })}

@@ -1,5 +1,6 @@
 //chakra-ui
 import { Box, Grid, Link, useBreakpointValue } from "@chakra-ui/react";
+
 //core components
 import Cta from "@/components/molecules/Cta";
 import Hero from "@/components/organism/Hero";
@@ -9,19 +10,27 @@ import DataImpact from "@/components/molecules/DataImpact";
 import Testimonial from "@/components/organism/Testimonial";
 import { Partners } from "@/components/organism/Partners";
 import Heading from "@/components/atoms/Heading";
-import Footer from "@/components/molecules/Footer";
-//resources
-import React from "react";
-//data
-import catalogs from '@/data/static/catalogs';
 import DetailCard from "@/components/molecules/DetailCard";
 import Container from "@/components/molecules/Container";
+import Footer from "@/components/molecules/Footer";
 import Scroll from "@/components/atoms/Scroll";
-import { ui } from "@/config/app";
+
+//resources
+import React from "react";
+import { next, ui } from "@/config/app";
+import { GetStaticProps } from "next";
+
+//data
+import { getCatalogs } from "@/data/request/catalogs";
+
+//types
+import ICatalog from "@/@types/catalog";
+import { getFormattedDate } from "@/utils/date";
 
 
 const heroProps = {
   element: "/assets/ui/element-02.svg",
+  h: { base: 480, sm: 560, md: 680 },
 }
 
 const ctaProps = {
@@ -29,7 +38,11 @@ const ctaProps = {
   description: "Entregamos confiança, credibilidade e inovação por todo nordeste",
 }
 
-export default function Home() {
+interface IPecasProps {
+  catalogs: ICatalog[];
+}
+
+export default function Pecas({ catalogs }: IPecasProps) {
 
   const templateColumns = useBreakpointValue({
     base: "repeat(1, 1fr)",
@@ -54,18 +67,18 @@ export default function Home() {
         {catalogs && (
           <Container>
             <Grid templateColumns={templateColumns} gap={12} rowGap={12} my={24} justifyItems="center">
-              {catalogs.map(({ id, name, desc, cover, url }) => (
-
+              {catalogs.map(({ id, name, releaseDate, partner, url }) => (
                 <DetailCard
                   key={id}
                   name={name}
-                  cover={cover}
-                  desc={desc}
+                  releaseDate={releaseDate}
+                  cover={partner.logo}
+                  desc={`${partner.name} ${getFormattedDate({ date: releaseDate, format: "YYYY" })}`}
                   button={{
                     label: "Baixar catálogo",
                     link: url
-                  }} />
-
+                  }}
+                />
               ))}
             </Grid>
           </Container>
@@ -77,4 +90,13 @@ export default function Home() {
       <Footer />
     </>
   );
+};
+
+export const getStaticProps: GetStaticProps = async () => {
+  return {
+    props: {
+      catalogs: await getCatalogs()
+    },
+    revalidate: next.revalidate.oneMinute
+  };
 };

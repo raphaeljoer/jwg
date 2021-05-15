@@ -9,7 +9,7 @@ export const Tooltip = ({ label, children, ...props }: TooltipProps) => {
       hasArrow
       label={label}
       color="oilblue.10"
-      bg="orange.400"
+      bg="orange.500"
       p={2}
       borderRadius="lg"
       {...props}
