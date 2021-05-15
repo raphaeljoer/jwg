@@ -1,14 +1,13 @@
-import { Button as CkButton, ButtonProps } from "@chakra-ui/react"
+import { Button as CkButton, ButtonProps, LinkProps } from "@chakra-ui/react"
 export interface IButtonProps extends ButtonProps {
   children: any;
   radiusFull?: boolean;
   fontWeight?: string | number;
+  target?: string;
 }
 
 export const Button = ({
   colorScheme = 'oilblue',
-  radiusFull,
-  fontWeight,
   size = "1rem",
   children,
   ...props
@@ -16,8 +15,6 @@ export const Button = ({
   return (
     <CkButton
       colorScheme={colorScheme}
-      borderRadius={radiusFull ? 'full' : 'md'}
-      fontWeight={fontWeight ? fontWeight : 'normal'}
       {...props}
     >
       {children}

@@ -1,37 +1,44 @@
 import React from "react";
-import Image from 'next/image';
 import Text from '@/components/atoms/Text';
 import { Badge, Box, BoxProps, Heading, useBreakpointValue, Image as CkImage, Flex, Icon } from "@chakra-ui/react"
 import { Button } from "../atoms/Button";
 import { FiDownload } from "react-icons/fi";
 
+import Link from "next/link";
+
 export interface DetailProps {
   title: string;
   description: string;
+}
+interface IButton {
+  label: string;
+  link: string;
 }
 
 export interface DetailCardProps extends BoxProps {
   name: string;
   cover: string;
   desc: string;
+  button: IButton;
+  variant?: "carousel"
 };
 
 const getCSSProps = () => {
   const margin = useBreakpointValue({ base: 24, md: 32, lg: 96 });
   return {
-    css: {
-      cursor: "pointer",
-      scrollSnapAlign: 'center',
-      '&:first-of-type': { marginLeft: margin },
-      '&:last-of-type': { marginRight: margin },
-    }
+    cursor: "pointer",
+    scrollSnapAlign: 'center',
+    '&:first-of-type': { marginLeft: margin },
+    '&:last-of-type': { marginRight: margin },
   }
 };
 
-export const DetailCard = ({ name, cover, desc, ...props }: DetailCardProps) => {
+export const DetailCard = ({ name, cover, desc, button, variant, ...props }: DetailCardProps) => {
+
+  const isCarousel = variant === "carousel";
 
   return (
-    <Box w={{ base: "xs", lg: "sm" }} borderRadius="xl" overflow="hidden" {...getCSSProps()} {...props}>
+    <Box w={{ base: "xs", lg: "sm" }} textDecoration="none" borderRadius="xl" overflow="hidden" css={isCarousel && getCSSProps()} {...props}>
       {cover && (
         <Flex h={152} borderTopRadius="lg" bgColor="white" align="center" justify="center">
           <Box position="relative">
@@ -59,23 +66,26 @@ export const DetailCard = ({ name, cover, desc, ...props }: DetailCardProps) => 
           {desc}
         </Text>
 
-        <Button
-          as="a"
-          borderRadius="xl"
-          leftIcon={<Icon as={FiDownload} />}
-          color="white"
-          bgColor="orange.500"
-          border="none"
-          _hover={{ bgColor: "transparent", color: "orange.500", border: "4px" }}
-          h={{ base: 14, xl: 16 }}
-          w="full"
-          fontWeight={500}
-          fontSize={{ base: 16, md: 20 }}
-          variant="outline"
-          cursor="pointer"
-        >
-          Baixar catalogo
+        <Link href={button.link} passHref>
+          <Button
+            as="a"
+            target="_blank"
+            borderRadius="xl"
+            leftIcon={<Icon as={FiDownload} />}
+            color="white"
+            bgColor="orange.500"
+            border="none"
+            _hover={{ bgColor: "transparent", color: "orange.500", border: "4px" }}
+            h={{ base: 14, xl: 16 }}
+            w="full"
+            fontWeight={500}
+            fontSize={{ base: 16, md: 20 }}
+            variant="outline"
+            cursor="pointer"
+          >
+            {button.label}
           </Button>
+        </Link>
       </Box>
     </Box>
   )

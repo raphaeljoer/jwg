@@ -26,7 +26,7 @@ import Logo from "@/components/molecules/Logo";
 //resources
 import Link from "next/link";
 import React from "react";
-import { FiMail } from "react-icons/fi";
+import { FiSend } from "react-icons/fi";
 import { HiMenuAlt3 } from 'react-icons/hi';
 //data
 import social from "@/data/static/social";
@@ -90,7 +90,7 @@ const displayContactButton = () => {
         as="a"
         mx={4}
         borderRadius={12}
-        leftIcon={<FiMail />}
+        leftIcon={<FiSend />}
         color="orange.500"
         border="1px"
         _hover={{ bgColor: "orange.500", color: "oilblue.800" }}

@@ -13,7 +13,7 @@ export const mainMenu = [
   },
   {
     label: 'Peças',
-    link: '/',
+    link: '/pecas',
     icon: FiTool,
   },
   {

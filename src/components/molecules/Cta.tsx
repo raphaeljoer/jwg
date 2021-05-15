@@ -1,7 +1,7 @@
 import React from "react";
 import { BoxProps, Flex, Heading, HeadingProps, Icon, Tag, TagProps, Text, TextProps } from "@chakra-ui/react"
 import { Button } from "../atoms/Button";
-import { FiMessageCircle } from "react-icons/fi";
+import { FiSend } from "react-icons/fi";
 
 interface ButtonProps {
   label: string;
@@ -26,12 +26,13 @@ const displayButton = ({label, onClick}: ButtonProps) => (
     <Button
       as="a"
       borderRadius={12}
-      leftIcon={<Icon as={FiMessageCircle} />}
-      color="oilblue.800"
+      rightIcon={<Icon as={FiSend} ml={2} fontSize={22} />}
+      color="oilblue.700"
       bgColor="orange.500"
       border="1px"
       _hover={{ bgColor: "transparent", color: "orange.500" }}
-      h={{base: 14, xl: 16}}
+      h={16}
+      px={6}
       fontWeight={500}
       fontSize={{base: 16, md: 20}}
       variant="outline"
@@ -72,11 +73,11 @@ export const Cta = (
           {upTitle}
         </Text>
       )}
-      <Heading as="h3" fontSize={{base: 24, sm: 32, md: 40, xl: 44}} lineHeight="120%" color="blue.600" mb={6} {...titleProps}>
+      <Heading as="h3" fontSize={{base: 28, sm: 32, md: 40, xl: 44}} lineHeight="120%" color="blue.600" mb={6} {...titleProps}>
         {title}
       </Heading>
       {description && (
-        <Text fontSize={{base: 16, sm: 20, xl: 22}} lineHeight="150%" color="oilblue.500" {...descriptionProps}>
+        <Text fontSize={{base: 18, sm: 20, xl: 22}} lineHeight="150%" color="oilblue.500" {...descriptionProps}>
           {description}
         </Text>
       )}

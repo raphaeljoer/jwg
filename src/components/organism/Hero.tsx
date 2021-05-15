@@ -8,8 +8,8 @@ import React, { cloneElement } from 'react';
 import Image from 'next/image';
 import { ui } from '@/config/app';
 interface HeroProps {
-  image: string;
-  element: string;
+  image?: string | undefined;
+  element?: string | undefined;
   children: any;
 }
 
@@ -30,34 +30,41 @@ const childrenProps = {
   },
 }
 
-const displayHeroPicture = (element: string, image: string) => (
+const displayHeroPicture = (element: HeroProps["element"], image: HeroProps["image"]) => (
   <Box position="relative" w="40%" h="100%" ml="auto" mr={16}>
-    <Image
-      src={element}
-      alt="JWG tool"
-      layout="fill"
-      objectFit="contain"
-      objectPosition="100% 100%"
-    />
-    <Image
-      src={image}
-      alt="JWG"
-      layout="fill"
-      objectFit="contain"
-      objectPosition="100% 100%"
-      priority
-    />
+    {element && (
+      <Image
+        src={element}
+        alt="JWG tool"
+        layout="fill"
+        objectFit="contain"
+        objectPosition="100% 70%"
+        priority
+      />
+    )}
+
+    {image && (
+      <Image
+        src={image}
+        alt="JWG"
+        layout="fill"
+        objectFit="contain"
+        objectPosition="100% 100%"
+        priority
+      />
+    )}
   </Box>
 );
 
-const Hero = ({ image, element, children, ...props }: HeroProps) => {
+const Hero = ({ element, image, children, ...props }: HeroProps) => {
   const isDesktop = useBreakpointValue({ base: false, lg: true });
   return (
     <Container
       overflow="visible"
       bgColor="oilblue.800"
       subContainerProps={{
-        h: {base: 480, md: 680},
+        pt: 12,
+        h: { base: 540, sm: 600, md: 680 },
         position: "relative",
         display: "flex",
         alignContent: "space-between"

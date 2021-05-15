@@ -4,8 +4,8 @@ import { Quotee } from '@/components/molecules/Quotee';
 import Scroll from '../atoms/Scroll';
 import { ui } from '@/config/app';
 
-export const Testimonial = () => (
-  <Box as="section" bg={useColorModeValue('oilblue.10', 'gray.800')} py={24} pos="relative">
+export const Testimonial = (props: any) => (
+  <Box as="section" bg={useColorModeValue('oilblue.10', 'gray.800')} py={24} pos="relative" {...props}>
     <Box maxW="3xl" mx="auto" px={{ base: '6', md: '8' }} pt="12" pb="16">
       <Flex direction="column" align="center" textAlign="center">
         <Text fontSize={{ base: 'xl', md: '2xl' }} fontWeight="medium" mb="6" color="oilblue.400">

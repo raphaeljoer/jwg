@@ -16,13 +16,14 @@ import Footer from "@/components/molecules/Footer";
 const heroProps = {
   image: "/assets/img/picture/hero-man-2.png",
   element: "/assets/ui/element-01.svg",
-  cta: {
-    title: "Entregando confiança, credibilidade e inovação por todo nordeste",
-    description: "Somos o elo entre fornecedores e redes de distribuição",
-    button: {
-      label: "Fale com o especialista",
-      onClick: () => location.href = "https://api.whatsapp.com/send?phone=5585988023938&text=Ol%C3%A1%20estou%20testando%20o%20envio%20de%20mensagem%20pelo%20site%20da%20JWG'"
-    }
+}
+
+const ctaProps = {
+  title: "Entregando confiança, credibilidade e inovação por todo nordeste",
+  description: "Somos o elo entre fornecedores e redes de distribuição",
+  button: {
+    label: "Fale com o especialista",
+    onClick: () => location.href = "https://api.whatsapp.com/send?phone=5585988023938&text=Ol%C3%A1%20estou%20testando%20o%20envio%20de%20mensagem%20pelo%20site%20da%20JWG'"
   }
 }
 
@@ -31,7 +32,7 @@ export default function Home() {
     <>
       <NavBar />
       <Hero {...heroProps}>
-        <Cta {...heroProps.cta} />
+        <Cta {...ctaProps} />
       </Hero>
       <Catalog catalogs={catalogs} />
       <DataImpact />
