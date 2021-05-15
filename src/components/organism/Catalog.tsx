@@ -51,7 +51,7 @@ export const Catalog = ({ catalogs }: ICatalogProps) => {
             <Button
               as="a"
               borderRadius="xl"
-              leftIcon={<Icon as={FiArchive} />}
+              leftIcon={<Icon as={FiArchive} mx={2}/>}
               color="oilblue.500"
               bgColor="transparent"
               border="2px"

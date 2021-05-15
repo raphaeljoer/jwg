@@ -50,8 +50,8 @@ export const DetailCard = ({
   variant,
   ...props
 }: DetailCardProps) => {
-  const isLongName = name.length > 23;
   const isCarousel = variant === "carousel";
+  const isLongName = useBreakpointValue({ base: name.length > 15, lg: name.length > 22 });
   const isLaunch = isSameDate({ dateToCompare: releaseDate, range: "month" })
 
   return (
