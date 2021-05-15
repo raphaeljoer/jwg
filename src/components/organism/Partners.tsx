@@ -1,5 +1,5 @@
 //chakra-ui
-import { Box } from "@chakra-ui/react";
+import { Box, Link } from "@chakra-ui/react";
 
 //core components
 import Tooltip from "@/components/atoms/Tooltip";
@@ -16,16 +16,19 @@ import partners from "@/data/static/partners";
 export const Partners = () => {
   return (
     <Container py={24}>
-      <Carousel spacing={24} scrollStep={128} fade title="Parceiros:">
-        {partners.map(({ imageUrl, name }, index) => (
+      <Carousel spacing={24} scrollStep={128} fade title="Parceiros">
+        {partners.map(({ imageUrl, name, link }, index) => (
           <Tooltip key={`${name}-${index}`} label={name} placement="top">
-            <Box position="relative" h={32} w={40} css={{
-              scrollSnapAlign: 'center',
-              '&:first-of-type': { marginLeft: 12 },
-              '&:last-of-type': { marginRight: 12 },
-            }}>
-              <Image src={imageUrl} layout="fill" objectFit="contain" />
-            </Box>
+            <Link href={link} target="_blank">
+              <Box position="relative" h={32} w={40} css={{
+                cursor: "pointer",
+                scrollSnapAlign: 'center',
+                '&:first-of-type': { marginLeft: 12 },
+                '&:last-of-type': { marginRight: 12 },
+              }}>
+                <Image src={imageUrl} layout="fill" objectFit="contain" />
+              </Box>
+            </Link>
           </Tooltip>
         ))}
       </Carousel>

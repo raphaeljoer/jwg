@@ -62,12 +62,19 @@ export const Carousel = ({ scrollStep, spacing, title, fade, tooltipProps, butto
 
   return (
     <>
-
       <Container>
-        <Flex justifyContent={isTablet ? 'center' : 'center'} zIndex={20} mb={12} px={8}>
-          <Heading as="h4" fontSize={32} fontWeight="700" color="oilblue.500">
-            {title}
-          </Heading>
+        <Flex justifyContent={isTablet ? 'space-between' : 'center'} zIndex={20} mb={12}>
+          <Heading fontSize={32} fontWeight="700" color="oilblue.500">{title}</Heading>
+          {isTablet && (
+            <Box>
+              <Tooltip label={buttonProps ? buttonProps.labelLeft : "Voltar"} placement="top" {...tooltipProps}>
+                <IconButton colorScheme="oilblue" aria-label="Scroll Back" mr={2} icon={<IoIosArrowBack />} onClick={handleScrollBack} />
+              </Tooltip>
+              <Tooltip label={buttonProps ? buttonProps.labelRight : "Próximo"} placement="top" {...tooltipProps}>
+                <IconButton colorScheme="oilblue" aria-label="Scroll Forward" icon={<IoIosArrowForward />} onClick={handleScrollNext} />
+              </Tooltip>
+            </Box>
+          )}
         </Flex>
       </Container>
 
@@ -95,19 +102,6 @@ export const Carousel = ({ scrollStep, spacing, title, fade, tooltipProps, butto
           </Stack>
         </Flex>
       </Flex>
-
-      <Container mt={12}>
-        <Flex justifyContent="center" zIndex={20} mb={12} px={8}>
-          <Box>
-            <Tooltip label={buttonProps ? buttonProps.labelLeft : "Voltar"} placement="top" {...tooltipProps}>
-              <IconButton colorScheme="oilblue" aria-label="Scroll Back" mr={2} icon={<IoIosArrowBack />} onClick={handleScrollBack} />
-            </Tooltip>
-            <Tooltip label={buttonProps ? buttonProps.labelRight : "Próximo"} placement="top" {...tooltipProps}>
-              <IconButton colorScheme="oilblue" aria-label="Scroll Forward" icon={<IoIosArrowForward />} onClick={handleScrollNext} />
-            </Tooltip>
-          </Box>
-        </Flex>
-      </Container>
     </>
   )
 };

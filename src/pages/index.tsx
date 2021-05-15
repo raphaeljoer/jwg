@@ -10,6 +10,7 @@ import React from "react";
 //data
 import catalogs from '@/data/static/catalogs';
 import { Partners } from "@/components/organism/Partners";
+import Footer from "@/components/molecules/Footer";
 
 
 const heroProps = {
@@ -33,9 +34,10 @@ export default function Home() {
         <Cta {...heroProps.cta} />
       </Hero>
       <Catalog catalogs={catalogs} />
-      <DataImpact/>
+      <DataImpact />
       <Testimonial />
       <Partners />
+      <Footer />
     </>
   );
 };
