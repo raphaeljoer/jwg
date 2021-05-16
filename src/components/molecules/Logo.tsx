@@ -1,14 +1,14 @@
 //chakra-ui
-import { Box } from "@chakra-ui/react"
+import { Box, BoxProps } from "@chakra-ui/react"
 //resources
 import React from "react";
 import Image from "next/image";
 //config
 import { seo, ui } from "@/config/app";
 
-export const Logo = () => {
+export const Logo = (props: BoxProps) => {
   return (
-    <Box css={{ cursor: "pointer" }}>
+    <Box css={{ cursor: "pointer" }} {...props}>
       <Image
         src={ui.logo.src.light}
         width={ui.logo.width}

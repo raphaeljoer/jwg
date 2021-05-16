@@ -14,10 +14,10 @@ import Scroll from "../atoms/Scroll";
 import { ui } from "@/config/app";
 
 export interface Footer {
-
+  hideLogo?: boolean;
 };
 
-export const Footer = ({ ...props }: Footer) => {
+export const Footer = ({ hideLogo, ...props }: Footer) => {
 
   const isDesktop = useBreakpointValue({ base: false, lg: true });
 
@@ -34,7 +34,7 @@ export const Footer = ({ ...props }: Footer) => {
 
         <Grid templateColumns={templateColumns} gap={8} py={12} alignItems="center" justifyContent="center">
 
-          <Logo />
+          {!hideLogo && <Logo />}
 
           <Text color="oilblue.50" mc={isDesktop ? true : false} maxW="md" lineHeight="150%">
             @2021 JWG Representações | Av Sargento Hermínio, 3100 | RioMar Kennedy Empresarial - Sala 411 - Fortaleza, CE

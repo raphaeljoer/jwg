@@ -32,6 +32,7 @@ import { HiMenuAlt3 } from 'react-icons/hi';
 import social from "@/data/static/social";
 import mainMenu from '@/data/static/menu';
 import { zIndex } from "@/config/app";
+import Footer from "./Footer";
 
 
 const displayMenu = () => (
@@ -107,27 +108,36 @@ const displayContactButton = () => {
 };
 
 const displayDrawer = (isDrawerOpen: boolean, onDrawerClose: () => void) => (
-  <Drawer placement="right" onClose={onDrawerClose} isOpen={isDrawerOpen}>
+  <Drawer placement="right" onClose={onDrawerClose} isOpen={isDrawerOpen} size="full">
     <DrawerOverlay>
-      <DrawerContent>
-        <DrawerCloseButton />
-        <DrawerHeader borderBottomWidth="1px">Menu</DrawerHeader>
-        <DrawerBody>
-          <Stack spacing={2} flexDirection={'column'} alignItems={'flex-start'}>
+      <DrawerContent bgColor="oilblue.800">
+        <DrawerCloseButton color="blue.500" m={4} size="full" p={4} />
+        <DrawerHeader>
+          <Logo my={4} />
+        </DrawerHeader>
+        <DrawerBody p={0} alignItems="space-between">
+          <Stack spacing={6} mx={4} mb={24} flexDirection={'column'} alignItems={'flex-start'}>
             {mainMenu.map(({ label, link, icon }, index) => (
               <Link key={`${label}-${index}`} href={link}>
                 <Button
                   as="a"
-                  leftIcon={<Icon as={icon} color="orange.500" />}
-                  borderRadius={12}
-                  fontWeight={400}
+                  leftIcon={<Icon as={icon} color="orange.500" mr={4} />}
+                  borderRadius="xl"
+                  color="oilblue.50"
+                  fontSize={28}
+                  py={8}
+                  justifyContent="flex-start"
+                  w="full"
+                  fontWeight={500}
                   cursor="pointer"
+                  bgColor="transparent"
                 >
                   {label}
                 </Button>
               </Link>
             ))}
           </Stack>
+          <Footer hideLogo />
         </DrawerBody>
       </DrawerContent>
     </DrawerOverlay>

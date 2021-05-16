@@ -13,10 +13,7 @@ export const Button = ({
   ...props
 }: IButtonProps) => {
   return (
-    <CkButton
-      colorScheme={colorScheme}
-      {...props}
-    >
+    <CkButton colorScheme={colorScheme} {...props}>
       {children}
     </CkButton>
   );
