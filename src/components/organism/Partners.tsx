@@ -15,7 +15,7 @@ import partners from "@/data/static/partners";
 
 export const Partners = () => {
   return (
-    <Container py={24}>
+    <Container id="parceiros" py={24}>
       <Carousel spacing={24} scrollStep={128} fade title="Parceiros">
         {partners.map(({ imageUrl, name, link }, index) => (
           <Tooltip key={`${name}-${index}`} label={name} placement="top">

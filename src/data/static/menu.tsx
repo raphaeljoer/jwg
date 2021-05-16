@@ -18,12 +18,12 @@ export const mainMenu = [
   },
   {
     label: 'Sobre',
-    link: '/',
+    link: '/#sobre',
     icon: FiAward,
   },
   {
     label: 'Parceiros',
-    link: '/',
+    link: '/#parceiros',
     icon: FiUsers,
   },
 ];
