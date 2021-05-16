@@ -1,5 +1,5 @@
 //chakra-ui
-import { Box, Flex, Icon, useBreakpointValue } from "@chakra-ui/react"
+import { Box, Flex, Icon } from "@chakra-ui/react"
 
 //core components
 import Heading from "@/components/atoms/Heading";
@@ -12,7 +12,6 @@ import Link from "next/link";
 import Button from "../atoms/Button";
 import { FiArchive } from "react-icons/fi";
 import ICatalog from "@/@types/catalog";
-import Tooltip from "../atoms/Tooltip";
 import { getFormattedDate } from "@/utils/date";
 
 export interface ICatalogProps {
@@ -51,7 +50,7 @@ export const Catalog = ({ catalogs }: ICatalogProps) => {
             <Button
               as="a"
               borderRadius="xl"
-              leftIcon={<Icon as={FiArchive} mx={2}/>}
+              leftIcon={<Icon as={FiArchive} mx={2} />}
               color="oilblue.500"
               bgColor="transparent"
               border="2px"

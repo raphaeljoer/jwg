@@ -35,3 +35,5 @@ export const Partners = () => {
     </Container>
   )
 }
+
+export default Partners;

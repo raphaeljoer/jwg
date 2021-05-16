@@ -1,14 +1,12 @@
 //chakra-ui
-import { Box, Grid, Link, useBreakpointValue } from "@chakra-ui/react";
+import { Box, Grid, useBreakpointValue } from "@chakra-ui/react";
 
 //core components
 import Cta from "@/components/molecules/Cta";
 import Hero from "@/components/organism/Hero";
 import NavBar from "@/components/molecules/NavBar";
-import Catalog from "@/components/organism/Catalog";
-import DataImpact from "@/components/molecules/DataImpact";
 import Testimonial from "@/components/organism/Testimonial";
-import { Partners } from "@/components/organism/Partners";
+import Partners from "@/components/organism/Partners";
 import Heading from "@/components/atoms/Heading";
 import DetailCard from "@/components/molecules/DetailCard";
 import Container from "@/components/molecules/Container";
@@ -17,20 +15,21 @@ import Scroll from "@/components/atoms/Scroll";
 
 //resources
 import React from "react";
+import SEO from "@/config/seo";
+import { NextSeo } from "next-seo";
 import { next, ui } from "@/config/app";
 import { GetStaticProps } from "next";
+import { getFormattedDate } from "@/utils/date";
 
 //data
 import { getCatalogs } from "@/data/request/catalogs";
 
 //types
 import ICatalog from "@/@types/catalog";
-import { getFormattedDate } from "@/utils/date";
 
 
 const heroProps = {
   element: "/assets/ui/element-02.svg",
-  h: { base: 480, sm: 560, md: 680 },
 }
 
 const ctaProps = {
@@ -52,6 +51,7 @@ export default function Pecas({ catalogs }: IPecasProps) {
 
   return (
     <>
+      <NextSeo {...SEO.page.pecas} />
       <NavBar />
       <Hero {...heroProps}>
         <Cta {...ctaProps} />

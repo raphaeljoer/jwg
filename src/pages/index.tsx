@@ -7,13 +7,15 @@ import DataImpact from "@/components/molecules/DataImpact";
 import Testimonial from "@/components/organism/Testimonial";
 //resources
 import React from "react";
+import { NextSeo } from "next-seo";
 //data
-import { Partners } from "@/components/organism/Partners";
 import Footer from "@/components/molecules/Footer";
 import { GetStaticProps } from "next";
 import { getCatalogs } from "@/data/request/catalogs";
+import { Partners } from "@/components/organism/Partners";
 import { next } from "@/config/app";
 import ICatalog from "@/@types/catalog";
+import SEO from "@/config/seo";
 
 
 const heroProps = {
@@ -36,6 +38,7 @@ interface IHomeProps {
 export default function Home({ catalogs }: IHomeProps) {
   return (
     <>
+      <NextSeo {...SEO.page.home}/>
       <NavBar />
       <Hero {...heroProps}>
         <Cta {...ctaProps} />
