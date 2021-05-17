@@ -1,12 +1,12 @@
 
-const siteName = "JWG Representações";
-const description = "Entregando confiança, credibilidade e inovação por todo nordeste";
-const canonical = "https://jwgrepresentacoes.com.br";
-const locale = "pt-br";
-const type = "website";
-const defaultImage = "/assets/img/opengraph/cover-opengraph.jpg";
+export const siteName = "JWG Representações";
+export const description = "Entregando confiança, credibilidade e inovação por todo nordeste";
+export const canonical = "https://jwgrepresentacoes.com.br";
+export const locale = "pt-br";
+export const type = "website";
+export const defaultImage = "/assets/img/opengraph/cover-opengraph.jpg";
 
-const pageConfig = {
+export const pageConfig = {
   title: siteName,
   description: description,
   canonical: canonical,

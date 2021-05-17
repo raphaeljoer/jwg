@@ -31,7 +31,7 @@ import { HiMenuAlt3 } from 'react-icons/hi';
 //data
 import social from "@/data/static/social";
 import mainMenu from '@/data/static/menu';
-import { zIndex } from "@/config/app";
+import { whatsapp, zIndex } from "@/config/app";
 import Footer from "./Footer";
 
 
@@ -89,7 +89,7 @@ const displayContactButton = () => {
     <Flex gridArea="rightMenu" align="flex-end">
       <Button
         as="a"
-        mx={4}
+        ml={4}
         borderRadius={12}
         leftIcon={<FiSend />}
         color="orange.500"
@@ -99,7 +99,7 @@ const displayContactButton = () => {
         fontWeight={500}
         variant="outline"
         cursor="pointer"
-        onClick={onContactModalOpen}
+        onClick={() => location.href = whatsapp.link}
       >
         Contato
       </Button>

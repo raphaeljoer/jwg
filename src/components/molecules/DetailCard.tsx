@@ -7,7 +7,8 @@ import {
   useBreakpointValue,
   Image as CkImage,
   Flex,
-  Icon
+  Icon,
+  Link
 } from "@chakra-ui/react"
 
 //core components
@@ -17,7 +18,7 @@ import Tooltip from "@/components/atoms/Tooltip";
 
 //resources
 import React from "react";
-import Link from "next/link";
+import NextLink from "next/link";
 import { FiDownload } from "react-icons/fi";
 import { getFormattedDate, isSameDate } from "@/utils/date";
 
@@ -99,26 +100,26 @@ export const DetailCard = ({
           {desc}
         </Text>
 
-        <Link href={button.link} passHref>
-          <Button
-            as="a"
-            target="_blank"
-            borderRadius="xl"
-            leftIcon={<Icon as={FiDownload} />}
-            color="white"
-            bgColor="orange.500"
-            border="none"
-            _hover={{ bgColor: "transparent", color: "orange.500", border: "2px" }}
-            h={{ base: 14, xl: 16 }}
-            w="full"
-            fontWeight={500}
-            fontSize={{ base: 16, md: 20 }}
-            variant="outline"
-            cursor="pointer"
-          >
-            {button.label}
-          </Button>
-        </Link>
+        <NextLink href={button.link} passHref>
+          <Link as="a" target="_blank" textDecoration="none !important">
+            <Button
+              borderRadius="xl"
+              leftIcon={<Icon as={FiDownload} />}
+              color="white"
+              bgColor="orange.500"
+              border="none"
+              _hover={{ bgColor: "transparent", color: "orange.500", border: "2px" }}
+              h={{ base: 14, xl: 16 }}
+              w="full"
+              fontWeight={500}
+              fontSize={{ base: 16, md: 20 }}
+              variant="outline"
+              cursor="pointer"
+            >
+              {button.label}
+            </Button>
+          </Link>
+        </NextLink>
       </Box>
     </Box>
   )

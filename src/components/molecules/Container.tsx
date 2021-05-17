@@ -8,7 +8,7 @@ export interface ContainerProps extends CkContainerProps {
 export const Container = ({ children, subContainerProps,...props }: ContainerProps) => {
   return (
     <CkContainer maxW="full" {...props}>
-      <CkContainer maxW="container.xl" {...subContainerProps}>
+      <CkContainer maxW="container.xl" p={0} {...subContainerProps}>
         {children}
       </CkContainer >
     </CkContainer>

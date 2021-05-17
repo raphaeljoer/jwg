@@ -13,7 +13,7 @@ import Footer from "@/components/molecules/Footer";
 import { GetStaticProps } from "next";
 import { getCatalogs } from "@/data/request/catalogs";
 import { Partners } from "@/components/organism/Partners";
-import { next } from "@/config/app";
+import { next, whatsapp } from "@/config/app";
 import ICatalog from "@/@types/catalog";
 import SEO from "@/config/seo";
 
@@ -28,7 +28,7 @@ const ctaProps = {
   description: "Somos o elo entre fornecedores e redes de distribuição",
   button: {
     label: "Fale com o especialista",
-    onClick: () => location.href = "https://api.whatsapp.com/send?phone=5585988023938&text=Ol%C3%A1%20estou%20testando%20o%20envio%20de%20mensagem%20pelo%20site%20da%20JWG'"
+    onClick: () => location.href = whatsapp.link
   }
 }
 interface IHomeProps {

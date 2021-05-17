@@ -34,10 +34,6 @@ export const ui = {
   noImage: "/img/ui-elements/no-image.svg"
 };
 
-export const seo = {
-  name: "JWG"
-}
-
 export const nextNprogress = {
   color: "#FF6700",
   startPosition: 0.4,
@@ -54,3 +50,7 @@ export const zIndex = {
   higher: 100000,
   highest: 1000000
 };
+
+export const whatsapp = {
+  link: "https://api.whatsapp.com/send?phone=5585988023938&text=Ol%C3%A1%20estou%20testando%20o%20envio%20de%20mensagem%20pelo%20site%20da%20JWG'"
+}

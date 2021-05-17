@@ -1,5 +1,5 @@
 //chakra-ui
-import { Box, Flex, Icon } from "@chakra-ui/react"
+import { Box, Flex, Icon, Link } from "@chakra-ui/react"
 
 //core components
 import Heading from "@/components/atoms/Heading";
@@ -8,7 +8,7 @@ import DetailCard from "@/components/molecules/DetailCard";
 
 //resources
 import React from "react";
-import Link from "next/link";
+import NextLink from "next/link";
 import Button from "../atoms/Button";
 import { FiArchive } from "react-icons/fi";
 import ICatalog from "@/@types/catalog";
@@ -46,28 +46,29 @@ export const Catalog = ({ catalogs }: ICatalogProps) => {
 
       {catalogs && (
         <Flex align="center" justify="center">
-          <Link href="/pecas" passHref>
-            <Button
-              as="a"
-              borderRadius="xl"
-              leftIcon={<Icon as={FiArchive} mx={2} />}
-              color="oilblue.500"
-              bgColor="transparent"
-              border="2px"
-              _hover={{ bgColor: "oilblue.500", color: "oilblue.10" }}
-              h={{ base: 14, xl: 16 }}
-              w="full"
-              fontWeight={500}
-              fontSize={{ base: 16, md: 20 }}
-              variant="outline"
-              cursor="pointer"
-              maxW="xs"
-              mt={16}
-              alignSelf="center"
-            >
-              Veja todos os catálogos
-          </Button>
-          </Link>
+          <NextLink href="/pecas" passHref>
+            <Link textDecoration="none !important">
+              <Button
+                borderRadius="xl"
+                leftIcon={<Icon as={FiArchive} mx={2} />}
+                color="oilblue.500"
+                bgColor="transparent"
+                border="2px"
+                _hover={{ bgColor: "oilblue.500", color: "oilblue.10" }}
+                h={{ base: 14, xl: 16 }}
+                w="full"
+                fontWeight={500}
+                fontSize={{ base: 16, md: 20 }}
+                variant="outline"
+                cursor="pointer"
+                maxW="xs"
+                mt={16}
+                alignSelf="center"
+              >
+                Veja todos os catálogos
+              </Button>
+            </Link>
+          </NextLink>
         </Flex>
       )}
 
