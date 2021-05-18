@@ -116,6 +116,7 @@ const displayDrawer = (isDrawerOpen: boolean, onDrawerClose: () => void) => (
                   anchor={isAnchor}
                   scroll={!isAnchor}
                   onClick={onDrawerClose}
+                  ckLinkProps={{w: "full", style: { textDecoration: "none" }}}
                 >
                   <Button
                     leftIcon={<Icon as={icon} color="orange.500" mr={4} />}
