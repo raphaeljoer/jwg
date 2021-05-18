@@ -33,19 +33,21 @@ const displayBadge = () => (
 );
 
 
-const displayValuePurpose = () => (
-  <Flex position="relative" align="center" justify="center" w="full">
-    <Cta
-      upTitle="Proposta de valor"
-      title="Construir soluções entre fornecedores e rede de distribuição com segurança e ética."
-      upTitleProps={{ color: "pink.400", textAlign: textAlign, maxW: { base: undefined, lg: 320 }, fontWeight: 400 }}
-      titleProps={{ color: "blue.100", textAlign: textAlign, maxW: { base: undefined, lg: 320 }, fontWeight: 500, fontSize: 32 }}
-      w="full"
-      zIndex="10"
-      maxW="sm"
-    />
-  </Flex>
-);
+const displayValuePurpose = () => {
+  const titleProps = { textAlign: textAlign, maxW: { base: undefined, lg: 320 }}
+  return (
+    <Flex position="relative" align="center" justify="center" w="full">
+      <Cta
+        upTitle="Proposta de valor"
+        title="Construir soluções entre fornecedores e rede de distribuição com segurança e ética."
+        upTitleProps={{...titleProps, color: "pink.400", fontWeight: 500  }}
+        titleProps={{ ...titleProps, fontSize: 32, fontWeight: 400, color: "blue.100" }}
+        w="full"
+        zIndex="10"
+        maxW="sm" />
+    </Flex>
+  );
+};
 
 const displayMainMilestone = () => (
   <Flex position="relative" justify="center" align="center" w="full" h={96}>
@@ -84,7 +86,7 @@ const displayDifferential = () => (
     <Cta
       title="O que nos faz únicos?"
       description="Somos sinônimo de atendimento personalizado, logística e tradição."
-      titleProps={{ color: "orange.400", fontSize: 24, textAlign: textAlign }}
+      titleProps={{ color: "orange.400", fontSize: 24, textAlign: textAlign, mb: 4 }}
       descriptionProps={{ color: "blue.100", textAlign: textAlign }}
       alignSelf="center"
       m="0 auto"
