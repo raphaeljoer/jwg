@@ -11,8 +11,6 @@ import {
   Grid,
   Icon,
   IconButton,
-  LinkBox,
-  LinkOverlay,
   Stack,
   useBreakpointValue,
   useDisclosure
@@ -24,7 +22,6 @@ import Button from "@/components/atoms/Button";
 import Tooltip from "@/components/atoms/Tooltip";
 import Logo from "@/components/molecules/Logo";
 //resources
-import Link from "next/link";
 import React from "react";
 import { FiSend } from "react-icons/fi";
 import { HiMenuAlt3 } from 'react-icons/hi';
@@ -33,30 +30,27 @@ import social from "@/data/static/social";
 import mainMenu from '@/data/static/menu';
 import { whatsapp, zIndex } from "@/config/app";
 import Footer from "./Footer";
+import Link from "../atoms/Link";
 
 
 const displayMenu = () => (
   <Flex gridArea="menu" px={6}>
     <ButtonGroup spacing={2}>
       {mainMenu.map(({ label, link, icon }, index) => (
-        <LinkBox key={`${label}-${index}`}>
-          <Link href={link} passHref>
-            <LinkOverlay>
-              <Button
-                leftIcon={<Icon as={icon} color="orange.500" />}
-                borderRadius={12}
-                fontWeight={400}
-                colorScheme="transparent"
-                color="oilblue.10"
-                _hover={{ bgColor: "oilblue.600" }}
-                cursor="pointer"
-                variant="ghost"
-              >
-                {label}
-              </Button>
-            </LinkOverlay>
-          </Link>
-        </LinkBox>
+        <Link key={`${label}-${index}`} href={link} passHref>
+          <Button
+            leftIcon={<Icon as={icon} color="orange.500" />}
+            borderRadius={12}
+            fontWeight={400}
+            colorScheme="transparent"
+            color="oilblue.10"
+            _hover={{ bgColor: "oilblue.600" }}
+            cursor="pointer"
+            variant="ghost"
+          >
+            {label}
+          </Button>
+        </Link>
       ))}
     </ButtonGroup>
   </Flex>
@@ -66,13 +60,9 @@ const displaySocial = () => (
   <Flex gridArea="social">
     <Stack direction="row" spacing={6} m="0 auto">
       {social.map(({ label, link, icon }, index) => (
-        <LinkBox key={`${label}-${index}`}>
-          <Link href={link} passHref>
-            <LinkOverlay>
-              <Icon as={icon} color="oilblue.50" fontSize={20} />
-            </LinkOverlay>
-          </Link>
-        </LinkBox>
+        <Link key={`${label}-${index}`} href={link} passHref>
+          <Icon as={icon} color="oilblue.50" fontSize={20} />
+        </Link>
       ))}
     </Stack>
   </Flex>
@@ -117,25 +107,33 @@ const displayDrawer = (isDrawerOpen: boolean, onDrawerClose: () => void) => (
         </DrawerHeader>
         <DrawerBody p={0} alignItems="space-between">
           <Stack spacing={6} mx={4} mb={24} flexDirection={'column'} alignItems={'flex-start'}>
-            {mainMenu.map(({ label, link, icon }, index) => (
-              <Link key={`${label}-${index}`} href={link}>
-                <Button
-                  as="a"
-                  leftIcon={<Icon as={icon} color="orange.500" mr={4} />}
-                  borderRadius="xl"
-                  color="oilblue.50"
-                  fontSize={28}
-                  py={8}
-                  justifyContent="flex-start"
-                  w="full"
-                  fontWeight={500}
-                  cursor="pointer"
-                  bgColor="transparent"
+            {mainMenu.map(({ label, link, icon }, index) => {
+              const isAnchor = link.includes("#");
+              return (
+                <Link
+                  key={`${label}-${index}`}
+                  href={link}
+                  anchor={isAnchor}
+                  scroll={!isAnchor}
+                  onClick={onDrawerClose}
                 >
-                  {label}
-                </Button>
-              </Link>
-            ))}
+                  <Button
+                    leftIcon={<Icon as={icon} color="orange.500" mr={4} />}
+                    borderRadius="xl"
+                    color="oilblue.50"
+                    fontSize={28}
+                    py={8}
+                    justifyContent="flex-start"
+                    w="full"
+                    fontWeight={500}
+                    cursor="pointer"
+                    bgColor="transparent"
+                  >
+                    {label}
+                  </Button>
+                </Link>
+              );
+            })}
           </Stack>
           <Footer hideLogo />
         </DrawerBody>

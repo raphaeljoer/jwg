@@ -39,7 +39,7 @@ const displayValuePurpose = () => (
       upTitle="Proposta de valor"
       title="Construir soluções entre fornecedores e rede de distribuição com segurança e ética."
       upTitleProps={{ color: "pink.400", textAlign: textAlign, maxW: { base: undefined, lg: 320 }, fontWeight: 400 }}
-      titleProps={{ color: "blue.100", textAlign: textAlign, maxW: { base: undefined, lg: 320 }, fontWeight: 500, fontSize: { base: 24, md: 24, xl: 32 } }}
+      titleProps={{ color: "blue.100", textAlign: textAlign, maxW: { base: undefined, lg: 320 }, fontWeight: 500, fontSize: 32 }}
       w="full"
       zIndex="10"
       maxW="sm"

@@ -1,7 +1,13 @@
 import { extendTheme, ChakraTheme } from "@chakra-ui/react"
-import { createBreakpoints } from "@chakra-ui/theme-tools"
 
 export const theme: ChakraTheme = extendTheme({
+  styles: {
+    global: {
+      "html": {
+        scrollBehavior: "smooth"
+      }
+    }
+  },
   config: {
     initialColorMode: "light",
     useSystemColorMode: false

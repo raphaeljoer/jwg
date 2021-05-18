@@ -8,12 +8,12 @@ interface ScrollProps {
   direction?: "up" | "down";
 }
 
-export const Scroll = ({file, direction = "down"}: ScrollProps) => {
+export const Scroll = ({ file, direction = "down" }: ScrollProps) => {
   const isUp = direction === "up";
   return (
     <Box
       position="absolute"
-      top={isUp ? 0 : undefined }
+      top={isUp ? 0 : undefined}
       bottom={isUp ? undefined : 0}
       left="50%"
       zIndex={10}
@@ -23,7 +23,9 @@ export const Scroll = ({file, direction = "down"}: ScrollProps) => {
         src={file}
         alt={ui.scroll.alt}
         width={ui.scroll.width}
-        height={ui.scroll.height} />
+        height={ui.scroll.height}
+        priority
+      />
     </Box>
   );
 };
