@@ -15,7 +15,6 @@ interface Props extends LinkProps {
 export const Link = ({ href, children, wait, onClick, ckLinkProps, ...props }: Props) => {
   const router = useRouter()
   const isAnchor = href.includes("#");
-  const style = { textDecoration: "none" };
 
   const goTo = () => router.push(href);
 
@@ -26,12 +25,12 @@ export const Link = ({ href, children, wait, onClick, ckLinkProps, ...props }: P
     else goTo();
   };
 
-  if (isAnchor) return cloneElement(children, { onClick: handleClick, style });
+  if (isAnchor) return cloneElement(children, { onClick: handleClick });
 
   return (
     <NextLink.default href={href} passHref {...props}>
-      <ChakraLink.Link {...ckLinkProps}>
-        {cloneElement(children, { onClick, style })}
+      <ChakraLink.Link {...ckLinkProps} style={{ textDecoration: "none" }} >
+        {cloneElement(children, { onClick })}
       </ChakraLink.Link>
     </NextLink.default>
   );
