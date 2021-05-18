@@ -24,7 +24,7 @@ export const Link = ({ href, children, anchor, onClick, ...props }: Props) => {
 
   return (
     <NextLink.default href={href} passHref {...props}>
-      <ChakraLink.Link>
+      <ChakraLink.Link w="full" style={{textDecoration: "none"}}>
         {cloneElement(children, { onClick })}
       </ChakraLink.Link>
     </NextLink.default>
