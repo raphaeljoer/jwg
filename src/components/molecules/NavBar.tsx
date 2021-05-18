@@ -106,17 +106,15 @@ const displayDrawer = (isDrawerOpen: boolean, onDrawerClose: () => void) => (
           <Logo my={4} />
         </DrawerHeader>
         <DrawerBody p={0} alignItems="space-between">
-          <Stack spacing={6} mx={4} mb={24} flexDirection={'column'} alignItems={'flex-start'}>
+          <Stack spacing={6} mx={4} mb={24} flexDirection={"column"} alignItems={"flex-start"}>
             {mainMenu.map(({ label, link, icon }, index) => {
-              const isAnchor = link.includes("#");
               return (
                 <Link
                   key={`${label}-${index}`}
                   href={link}
-                  anchor={isAnchor}
-                  scroll={!isAnchor}
+                  wait={300}
                   onClick={onDrawerClose}
-                  ckLinkProps={{w: "full", style: { textDecoration: "none" }}}
+                  ckLinkProps={{w: "full"}}
                 >
                   <Button
                     leftIcon={<Icon as={icon} color="orange.500" mr={4} />}
