@@ -1,19 +1,20 @@
 //chakra-ui
-import { useBreakpointValue, Flex, Box } from '@chakra-ui/react';
+import { useBreakpointValue, Flex, Box, ContainerProps } from '@chakra-ui/react';
+
 //core components
 import Scroll from '@/components/atoms/Scroll';
 import Container from '@/components/molecules/Container';
+
 //resources
 import React, { cloneElement } from 'react';
 import Image from 'next/image';
 import { ui } from '@/config/app';
-interface HeroProps {
-  image?: string | undefined;
-  element?: string | undefined;
-  children: any;
-}
 
-const childrenProps = {
+//types
+import ICtaProps from '@/@types/cta';
+import IHeroProps from '@/@types/hero';
+
+const childrenProps: ICtaProps = {
   h: "full",
   m: { base: "0 auto", lg: "0" },
   maxW: "lg",
@@ -28,9 +29,17 @@ const childrenProps = {
     maxW: "xs",
     m: { base: "0 auto", lg: "0" }
   },
-}
+};
 
-const displayHeroPicture = (element: HeroProps["element"], image: HeroProps["image"]) => (
+const subContainerProps: ContainerProps = {
+  pt: 12,
+  h: { base: 540, sm: 600, md: 680 },
+  position: "relative",
+  display: "flex",
+  alignContent: "space-between"
+};
+
+const displayHeroPicture = (element: IHeroProps["element"], image: IHeroProps["image"]) => (
   <Box position="relative" w="40%" h="100%" ml="auto" mr={16}>
     {element && (
       <Image
@@ -39,7 +48,6 @@ const displayHeroPicture = (element: HeroProps["element"], image: HeroProps["ima
         layout="fill"
         objectFit="contain"
         objectPosition="100% 70%"
-        priority
       />
     )}
 
@@ -50,36 +58,26 @@ const displayHeroPicture = (element: HeroProps["element"], image: HeroProps["ima
         layout="fill"
         objectFit="contain"
         objectPosition="100% 100%"
-        priority
       />
     )}
   </Box>
 );
 
-const Hero = ({ element, image, children, ...props }: HeroProps) => {
+const Hero = ({ element, image, children, ...props }: IHeroProps) => {
+  if(!children) throw new Error("Children is mandatory");
   const isDesktop = useBreakpointValue({ base: false, lg: true });
   return (
     <Container
       overflow="visible"
       bgColor="oilblue.800"
-      subContainerProps={{
-        pt: 12,
-        h: { base: 540, sm: 600, md: 680 },
-        position: "relative",
-        display: "flex",
-        alignContent: "space-between"
-      }}
+      subContainerProps={subContainerProps}
       {...props}
     >
-
       {cloneElement(children, { ...childrenProps, ...children.props })}
-
       {isDesktop && displayHeroPicture(element, image)}
-
       <Scroll file={ui.scroll.src.dark.down} />
     </Container>
-
-  )
+  );
 };
 
 export default Hero;

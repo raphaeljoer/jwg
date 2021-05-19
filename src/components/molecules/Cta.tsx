@@ -1,27 +1,18 @@
-import React from "react";
-import { BoxProps, Flex, Heading, HeadingProps, Icon, Tag, TagProps, Text, TextProps } from "@chakra-ui/react"
+//chakra-ui
+import { Flex, Heading, Icon, Tag, Text } from "@chakra-ui/react"
+
+//core components
 import { Button } from "../atoms/Button";
+
+//resources
+import React, { ReactChild, ReactElement } from "react";
 import { FiSend } from "react-icons/fi";
 
-interface ButtonProps {
-  label: string;
-  onClick?: () => void;
-}
-export interface CtaProps extends BoxProps {
-  icon?: any;
-  tag?: string;
-  tagProps?: TagProps;
-  upTitle?: string;
-  upTitleProps?: TextProps;
-  title?: string;
-  titleProps?: HeadingProps;
-  description?: string | React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
-  descriptionProps?: TextProps;
-  button?: ButtonProps;
-  children?: any;
-};
+//types
+import ICtaProps from "@/@types/cta";
+import IButtonProps from "@/@types/button";
 
-const displayButton = ({label, onClick}: ButtonProps) => (
+const displayButton = ({ label, onClick }: IButtonProps) => (
   <Flex w="full" mt={10} justifyContent={{ base: "center", lg: "left" }}>
     <Button
       as="a"
@@ -34,7 +25,7 @@ const displayButton = ({label, onClick}: ButtonProps) => (
       h={16}
       px={6}
       fontWeight={500}
-      fontSize={{base: 16, md: 20}}
+      fontSize={{ base: 16, md: 20 }}
       variant="outline"
       cursor="pointer"
       onClick={onClick}
@@ -58,7 +49,7 @@ export const Cta = (
     button,
     children,
     ...props
-  }: CtaProps
+  }: ICtaProps
 ) => {
   return (
     <Flex flexDirection="column" {...props}>
@@ -73,11 +64,11 @@ export const Cta = (
           {upTitle}
         </Text>
       )}
-      <Heading as="h3" fontSize={{base: 28, sm: 32, md: 40, xl: 44}} lineHeight="120%" color="blue.600" mb={6} {...titleProps}>
+      <Heading as="h3" fontSize={{ base: 28, sm: 32, md: 40, xl: 44 }} lineHeight="120%" color="blue.600" mb={6} {...titleProps}>
         {title}
       </Heading>
       {description && (
-        <Text fontSize={{base: 18, sm: 20, xl: 22}} lineHeight="150%" color="oilblue.500" {...descriptionProps}>
+        <Text fontSize={{ base: 18, sm: 20, xl: 22 }} lineHeight="150%" color="oilblue.500" {...descriptionProps}>
           {description}
         </Text>
       )}

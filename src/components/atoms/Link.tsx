@@ -2,7 +2,6 @@ import * as NextLink from "next/link";
 import * as ChakraLink from "@chakra-ui/react";
 import React, { cloneElement } from "react";
 import { useRouter } from "next/router";
-import { useBreakpointValue } from "@chakra-ui/react";
 
 type LinkProps = NextLink.LinkProps & ChakraLink.LinkProps;
 interface Props extends LinkProps {
@@ -12,7 +11,7 @@ interface Props extends LinkProps {
   ckLinkProps?: ChakraLink.LinkProps;
 }
 
-export const Link = ({ href, children, wait, onClick, ckLinkProps, ...props }: Props) => {
+export const Link = ({ href, children, wait, ckLinkProps, onClick, ...props }: Props) => {
   const router = useRouter()
   const isAnchor = href.includes("#");
 
