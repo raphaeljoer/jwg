@@ -44,7 +44,7 @@ export default function Pecas({ catalogs }: IProps) {
       <Hero {...heroProps}>
         <Cta {...ctaProps} />
       </Hero>
-      <Cards cards={catalogs} />
+      <Cards variant="grid" cards={catalogs} />
       <Scroll file={ui.scroll.src.light.down} />
       <Testimonial bg="gray.50" />
       <Partners />

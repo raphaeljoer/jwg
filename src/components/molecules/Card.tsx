@@ -24,7 +24,7 @@ import { getFormattedDate, isSameDate } from "@/utils/date";
 
 //types
 import IButton from "@/@types/button";
-export interface DetailCardProps extends BoxProps {
+export interface ICardProps extends BoxProps {
   name: string;
   cover: string;
   desc: string;
@@ -42,7 +42,7 @@ const getCSSProps = () => {
   }
 };
 
-export const DetailCard = ({
+export const Card = ({
   name,
   cover,
   desc,
@@ -50,7 +50,7 @@ export const DetailCard = ({
   button,
   variant,
   ...props
-}: DetailCardProps) => {
+}: ICardProps) => {
   const isCarousel = variant === "carousel";
   const isLongName = useBreakpointValue({ base: name.length > 15, lg: name.length > 22 });
   const isLaunch = isSameDate({ dateToCompare: releaseDate, range: "month" })
@@ -125,4 +125,4 @@ export const DetailCard = ({
   )
 };
 
-export default DetailCard;
+export default Card;

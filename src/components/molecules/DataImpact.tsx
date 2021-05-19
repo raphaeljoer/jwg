@@ -2,7 +2,7 @@
 import { Box, Flex, Grid, ResponsiveValue, useBreakpointValue } from "@chakra-ui/react"
 //core components
 import Container from "./Container";
-import Cta, { CtaProps } from "./Cta";
+import Cta from "./Cta";
 //resources
 import React from "react";
 import Image from 'next/image';
@@ -10,8 +10,9 @@ import * as CSS from "csstype";
 import Scroll from "../atoms/Scroll";
 import { milestones } from "@/data/static/milestones";
 import { ui } from "@/config/app";
+import ICtaProps from "@/@types/cta";
 
-const milestoneProps: CtaProps = {
+const milestoneProps: ICtaProps = {
   upTitleProps: { color: "blue.500", fontSize: 40, fontWeight: 900, textAlign: { base: "center", lg: "left" } },
   titleProps: { color: "orange.400", fontSize: 20, fontWeight: 900, textAlign: { base: "center", lg: "left" } },
   descriptionProps: { color: "blue.100", textAlign: { base: "center", lg: "left" }, fontSize: { base: 16, xl: 18 } },

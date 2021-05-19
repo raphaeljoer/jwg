@@ -47,10 +47,10 @@ export default function Home({ catalogs }: IHomeProps) {
       <Hero {...heroProps}>
         <Cta {...ctaProps} />
       </Hero>
-      <Cards cards={catalogs} />
+      <Cards variant="carousel" cards={catalogs} />
       <DataImpact />
-      <Partners />
       <Testimonial />
+      <Partners />
       <Footer />
     </>
   );
