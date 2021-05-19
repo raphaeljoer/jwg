@@ -5,7 +5,10 @@ export default class Document extends NextDocument {
   render() {
     return (
       <Html lang="en">
-        <Head />
+        <Head>
+          <link rel="icon" type="image/png" href="/assets/img/fav/favicon.svg" />
+          <link rel="shortcut icon" href="/assets/img/fav/favicon.svg" />
+        </Head>
         <body>
           <ColorModeScript initialColorMode={theme.config.initialColorMode} />
           <Main />
