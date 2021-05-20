@@ -7,30 +7,28 @@ import {
   useBreakpointValue,
   Image as CkImage,
   Flex,
-  Icon,
-  Link
 } from "@chakra-ui/react"
 
 //core components
 import Text from '@/components/atoms/Text';
-import Button from "@/components/atoms/buttons/Button";
 import Tooltip from "@/components/atoms/Tooltip";
 
 //resources
 import React from "react";
-import NextLink from "next/link";
 import { FiDownload } from "react-icons/fi";
 import { getFormattedDate, isSameDate } from "@/utils/date";
 
 //types
 import IButton from "@/@types/button";
+import ButtonCta from "../atoms/buttons/ButtonCta";
+import Link from "../atoms/Link";
 export interface ICardProps extends BoxProps {
   name: string;
   cover: string;
   desc: string;
   releaseDate: string;
+  isCarousel?: boolean;
   button: IButton;
-  variant?: "carousel"
 };
 
 const getCSSProps = () => {
@@ -48,10 +46,9 @@ export const Card = ({
   desc,
   releaseDate,
   button,
-  variant,
+  isCarousel,
   ...props
 }: ICardProps) => {
-  const isCarousel = variant === "carousel";
   const isLongName = useBreakpointValue({ base: name.length > 15, lg: name.length > 22 });
   const isLaunch = isSameDate({ dateToCompare: releaseDate, range: "month" })
 
@@ -100,26 +97,16 @@ export const Card = ({
           {desc}
         </Text>
 
-        <NextLink href={button.link} passHref>
-          <Link as="a" target="_blank" textDecoration="none !important">
-            <Button
-              borderRadius="xl"
-              leftIcon={<Icon as={FiDownload} />}
-              color="white"
-              bgColor="orange.500"
-              border="none"
-              _hover={{ bgColor: "transparent", color: "orange.500", border: "2px" }}
-              h={{ base: 14, xl: 16 }}
-              w="full"
-              fontWeight={500}
-              fontSize={{ base: 16, md: 20 }}
-              variant="outline"
-              cursor="pointer"
-            >
-              {button.label}
-            </Button>
-          </Link>
-        </NextLink>
+        <Link href={button.link} target="_blank">
+          <ButtonCta
+            variant="hero"
+            color="orange1"
+            leftIcon={<FiDownload />}
+            w="full"
+          >
+            {button.label}
+          </ButtonCta>
+        </Link>
       </Box>
     </Box>
   )

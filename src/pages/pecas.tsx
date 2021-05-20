@@ -36,7 +36,6 @@ interface IProps {
 }
 
 export default function Pecas({catalogs}: IProps) {
-
   return (
     <>
       <NextSeo {...SEO.page.pecas} />

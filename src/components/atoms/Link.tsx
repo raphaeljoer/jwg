@@ -4,14 +4,15 @@ import React, { cloneElement } from "react";
 import { useRouter } from "next/router";
 
 type LinkProps = NextLink.LinkProps & ChakraLink.LinkProps;
-interface Props extends LinkProps {
+interface IProps extends LinkProps {
   children: any;
   wait?: number;
+  target?: "_blank" | "_self";
   onClick?: () => void;
   ckLinkProps?: ChakraLink.LinkProps;
 }
 
-export const Link = ({ href, children, wait, ckLinkProps, onClick, ...props }: Props) => {
+export const Link = ({ href, children, wait, target, ckLinkProps, onClick, ...props }: IProps) => {
   const router = useRouter()
   const isAnchor = href.includes("#");
 
@@ -28,7 +29,7 @@ export const Link = ({ href, children, wait, ckLinkProps, onClick, ...props }: P
 
   return (
     <NextLink.default href={href} passHref {...props}>
-      <ChakraLink.Link {...ckLinkProps} style={{ textDecoration: "none" }} >
+      <ChakraLink.Link {...ckLinkProps} style={{ textDecoration: "none" }} target={target}>
         {cloneElement(children, { onClick })}
       </ChakraLink.Link>
     </NextLink.default>

@@ -14,7 +14,8 @@ const displayButton = ({ label, onClick }: IButtonProps) => (
   <Flex w="full" mt={10} justifyContent={{ base: "center", lg: "left" }}>
     <ButtonCta
       leftIcon={<Icon as={FiSend} mr={2} fontSize={22} />}
-      variant="orange"
+      variant="hero"
+      color="orange1"
       onClick={onClick}
     >
       {label}

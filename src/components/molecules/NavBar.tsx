@@ -12,15 +12,14 @@ import {
   Icon,
   IconButton,
   Stack,
+  Tooltip,
   useBreakpointValue,
   useDisclosure
 }
-from "@chakra-ui/react";
+  from "@chakra-ui/react";
 //core components
 import Link from "@/components/atoms/Link";
 import Container from "@/components/molecules/Container"
-import Button from "@/components/atoms/buttons/Button";
-import Tooltip from "@/components/atoms/Tooltip";
 import Logo from "@/components/molecules/Logo";
 import Footer from "@/components/molecules/Footer";
 import ButtonCta from "@/components/atoms/buttons/ButtonCta";
@@ -41,8 +40,9 @@ const displayMenu = () => (
         <Link key={`${label}-${index}`} href={link} passHref>
           <ButtonCta
             variant="mainMenu"
+            color="transparent"
             leftIcon={<Icon as={icon} color="orange.500" />}
-            >
+          >
             {label}
           </ButtonCta>
         </Link>
@@ -55,8 +55,13 @@ const displaySocial = () => (
   <Flex gridArea="social">
     <Stack direction="row" spacing={6} m="0 auto">
       {social.map(({ label, link, icon }, index) => (
-        <Link key={`${label}-${index}`} href={link} passHref>
-          <Icon as={icon} color="oilblue.50" fontSize={20} />
+        <Link key={`${label}-${index}`} href={link}>
+          <Icon
+            as={icon}
+            color="oilblue.50"
+            fontSize={20}
+            _hover={{ color: "orange.500" }}
+          />
         </Link>
       ))}
     </Stack>
@@ -74,9 +79,10 @@ const displayContactButton = () => {
     <Flex gridArea="rightMenu" align="flex-end">
       <ButtonCta
         variant="rightMenu"
+        color="orange2"
         leftIcon={<FiSend />}
         onClick={() => location.href = whatsapp.link}
-        >
+      >
         Contato
       </ButtonCta>
     </Flex>
@@ -96,26 +102,19 @@ const displayDrawer = (isDrawerOpen: boolean, onDrawerClose: () => void) => (
             {mainMenu.map(({ label, link, icon }, index) => {
               return (
                 <Link
-                key={`${label}-${index}`}
-                href={link}
-                wait={300}
-                onClick={onDrawerClose}
-                ckLinkProps={{ w: "full" }}
+                  key={`${label}-${index}`}
+                  href={link}
+                  wait={300}
+                  onClick={onDrawerClose}
+                  ckLinkProps={{ w: "full" }}
                 >
-                  <Button
+                  <ButtonCta
+                    variant="mobileMenu"
+                    color="transparent"
                     leftIcon={<Icon as={icon} color="orange.500" mr={4} />}
-                    borderRadius="xl"
-                    color="oilblue.50"
-                    fontSize={28}
-                    py={8}
-                    justifyContent="flex-start"
-                    w="full"
-                    fontWeight={500}
-                    cursor="pointer"
-                    bgColor="transparent"
-                    >
+                  >
                     {label}
-                  </Button>
+                  </ButtonCta>
                 </Link>
               );
             })}
@@ -147,7 +146,7 @@ const displayMobileMenu = () => {
           size="lg"
           icon={<HiMenuAlt3 />}
           cursor="pointer"
-          />
+        />
       </Tooltip>
       {displayDrawer(isDrawerOpen, onDrawerClose)}
     </>
@@ -170,10 +169,10 @@ export const NavBar = () => {
   const isDesktop = useBreakpointValue({ base: false, lg: true });
   return (
     <Container
-    as="nav"
-    zIndex={zIndex.low}
-    position="absolute"
-    subContainerProps={{ h: 24, pt: 2 }}
+      as="nav"
+      zIndex={zIndex.low}
+      position="absolute"
+      subContainerProps={{ h: 24, pt: 2 }}
     >
       <Grid
         templateRows="1fr"
@@ -181,7 +180,7 @@ export const NavBar = () => {
         templateAreas={{ base: "'logo rightMenu'", lg: "'logo menu social rightMenu'" }}
         alignItems="center"
         h="full"
-        >
+      >
         {displayLogo()}
         {isDesktop && displayMenu()}
         {isDesktop && displaySocial()}

@@ -32,11 +32,11 @@ const ctaProps: ICtaProps = {
     onClick: () => location.href = whatsapp.link
   }
 };
-interface IHomeProps {
+interface IProps {
   catalogs: ICatalog[];
 };
 
-export default function Home({ catalogs }: IHomeProps) {
+export default function Home({ catalogs }: IProps) {
   return (
     <>
       <NextSeo {...SEO.page.home} />

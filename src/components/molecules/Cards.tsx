@@ -44,7 +44,7 @@ const displayCarousel = (cards: ICatalog[]) => (
           releaseDate={releaseDate}
           cover={partner.logo}
           desc={`${partner.name} ${getFormattedDate({ date: releaseDate, format: "YYYY" })}`}
-          variant="carousel"
+          isCarousel
           button={{
             label: cardsConfig.button.label,
             link: url
@@ -55,7 +55,8 @@ const displayCarousel = (cards: ICatalog[]) => (
     <Flex align="center" justify="center">
       <Link href="/pecas" passHref>
         <ButtonCta
-          variant="oilblue"
+          variant="hero"
+          color="oilblue2"
           leftIcon={<Icon as={FiArchive} mx={2} />}
           mt={16}
           border="2px"
@@ -95,14 +96,14 @@ const displayGrid = (cards: ICatalog[]) => {
 };
 
 export const Cards = ({ cards, variant }: IProps) => {
-  const switcher = {
+  const templateSwitcher = {
     "carousel": displayCarousel(cards),
     "grid": displayGrid(cards)
   }
   return (
     <Box as="section" w="full" bgColor="oilblue.10" pt={24} pb={40} position="relative">
       {displayTitle(cards)}
-      {cards && switcher[variant]};
+      {cards && templateSwitcher[variant]};
     </Box>
   );
 };
