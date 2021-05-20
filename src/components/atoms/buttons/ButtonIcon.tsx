@@ -1,13 +1,11 @@
-import { Button, IButtonProps } from '@/components/atoms/Button';
-import { FiArrowRight } from 'react-icons/fi';
-import { Icon } from '../atoms/Icon';
+import {Button, IButtonProps} from '@/components/atoms/buttons/Button';
 
 interface IButtonIconProps extends IButtonProps {
   icon?: any;
   href?: string;
 }
 
-const ButtonIcon = ({ children, icon, ...props }: IButtonIconProps) => {
+const ButtonIcon = ({children, icon, ...props}: IButtonIconProps) => {
   return (
     <Button
       mx={4}

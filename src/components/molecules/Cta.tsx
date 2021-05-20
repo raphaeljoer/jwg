@@ -1,31 +1,28 @@
 //chakra-ui
-import { Flex, Heading, Icon, Tag, Text } from "@chakra-ui/react"
-
+import {Flex, Heading, Icon, Tag, Text} from "@chakra-ui/react"
 //core components
-import { Button } from "../atoms/Button";
-
+import {Button} from "@/components/atoms/buttons/Button";
 //resources
-import React, { ReactChild, ReactElement } from "react";
-import { FiSend } from "react-icons/fi";
-
+import React from "react";
+import {FiSend} from "react-icons/fi";
 //types
 import ICtaProps from "@/@types/cta";
 import IButtonProps from "@/@types/button";
 
-const displayButton = ({ label, onClick }: IButtonProps) => (
-  <Flex w="full" mt={10} justifyContent={{ base: "center", lg: "left" }}>
+const displayButton = ({label, onClick}: IButtonProps) => (
+  <Flex w="full" mt={10} justifyContent={{base: "center", lg: "left"}}>
     <Button
       as="a"
       borderRadius={12}
-      rightIcon={<Icon as={FiSend} ml={2} fontSize={22} />}
+      rightIcon={<Icon as={FiSend} ml={2} fontSize={22}/>}
       color="oilblue.700"
       bgColor="orange.500"
       border="1px"
-      _hover={{ bgColor: "transparent", color: "orange.500" }}
+      _hover={{bgColor: "transparent", color: "orange.500"}}
       h={16}
       px={6}
       fontWeight={500}
-      fontSize={{ base: 16, md: 20 }}
+      fontSize={{base: 16, md: 20}}
       variant="outline"
       cursor="pointer"
       onClick={onClick}
@@ -64,11 +61,11 @@ export const Cta = (
           {upTitle}
         </Text>
       )}
-      <Heading as="h3" fontSize={{ base: 28, sm: 32, md: 40, xl: 44 }} lineHeight="120%" color="blue.600" mb={6} {...titleProps}>
+      <Heading as="h3" fontSize={{base: 28, sm: 32, md: 40, xl: 44}} lineHeight="120%" color="blue.600" mb={6} {...titleProps}>
         {title}
       </Heading>
       {description && (
-        <Text fontSize={{ base: 18, sm: 20, xl: 22 }} lineHeight="150%" color="oilblue.500" {...descriptionProps}>
+        <Text fontSize={{base: 18, sm: 20, xl: 22}} lineHeight="150%" color="oilblue.500" {...descriptionProps}>
           {description}
         </Text>
       )}

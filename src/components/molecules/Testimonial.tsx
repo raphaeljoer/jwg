@@ -1,7 +1,7 @@
 import { Box, Circle, Flex, HStack, Text, useColorModeValue } from '@chakra-ui/react'
 import * as React from 'react'
 import { Quotee } from '@/components/molecules/Quotee';
-import Scroll from '../atoms/Scroll';
+import Scroll from '@/components/atoms/Scroll';
 import { ui } from '@/config/app';
 
 export const Testimonial = (props: any) => (

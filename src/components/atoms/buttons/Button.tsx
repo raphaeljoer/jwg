@@ -1,4 +1,5 @@
-import { Button as CkButton, ButtonProps, LinkProps } from "@chakra-ui/react"
+import { Button as CkButton, ButtonProps } from "@chakra-ui/react"
+
 export interface IButtonProps extends ButtonProps {
   children: any;
   radiusFull?: boolean;

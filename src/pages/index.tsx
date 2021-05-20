@@ -1,23 +1,20 @@
 //core components
 import Cta from "@/components/molecules/Cta";
-import Hero from "@/components/organism/Hero";
+import Hero from "@/components/molecules/Hero";
 import NavBar from "@/components/molecules/NavBar";
-import Cards from "@/components/organism/Cards";
+import Cards from "@/components/molecules/Cards";
 import DataImpact from "@/components/molecules/DataImpact";
-import Testimonial from "@/components/organism/Testimonial";
+import Testimonial from "@/components/molecules/Testimonial";
 import Footer from "@/components/molecules/Footer";
-import Partners from "@/components/organism/Partners";
-
+import Partners from "@/components/molecules/Partners";
 //resources
 import React from "react";
 import SEO from "@/config/seo";
 import { NextSeo } from "next-seo";
 import { GetStaticProps } from "next";
 import { next, whatsapp } from "@/config/app";
-
 //data
 import { getCatalogs } from "@/data/request/catalogs";
-
 //types
 import ICatalog from "@/@types/catalog";
 import ICtaProps from "@/@types/cta";

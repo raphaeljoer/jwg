@@ -1,13 +1,13 @@
 //chakra-ui
 import { Box, Flex, Grid, ResponsiveValue, useBreakpointValue } from "@chakra-ui/react"
 //core components
-import Container from "./Container";
+import Container from "@/components/molecules/Container";
 import Cta from "./Cta";
 //resources
 import React from "react";
 import Image from 'next/image';
 import * as CSS from "csstype";
-import Scroll from "../atoms/Scroll";
+import Scroll from "@/components/atoms/Scroll";
 import { milestones } from "@/data/static/milestones";
 import { ui } from "@/config/app";
 import ICtaProps from "@/@types/cta";

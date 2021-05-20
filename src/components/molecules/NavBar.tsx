@@ -18,7 +18,7 @@ import {
   from "@chakra-ui/react";
 //core components
 import Container from "@/components/molecules/Container"
-import Button from "@/components/atoms/Button";
+import Button from "@/components/atoms/buttons/Button";
 import Tooltip from "@/components/atoms/Tooltip";
 import Logo from "@/components/molecules/Logo";
 //resources
@@ -30,7 +30,7 @@ import social from "@/data/static/social";
 import mainMenu from '@/data/static/menu';
 import { whatsapp, zIndex } from "@/config/app";
 import Footer from "./Footer";
-import Link from "../atoms/Link";
+import Link from "@/components/atoms/Link";
 
 
 const displayMenu = () => (

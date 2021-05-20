@@ -22,7 +22,7 @@ import React, {useCallback, useEffect} from "react";
 import * as yup from 'yup';
 import {useForm} from "react-hook-form";
 import {yupResolver} from "@hookform/resolvers/yup";
-import {Heading} from "../atoms/Heading";
+import {Heading} from "@/components/atoms/Heading";
 import {FiMail, FiPhone, FiUser} from 'react-icons/fi';
 import axios from "axios";
 

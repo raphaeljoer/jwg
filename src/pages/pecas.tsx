@@ -1,25 +1,25 @@
 //core components
 import Cta from "@/components/molecules/Cta";
-import Hero from "@/components/organism/Hero";
+import Hero from "@/components/molecules/Hero";
 import NavBar from "@/components/molecules/NavBar";
-import Testimonial from "@/components/organism/Testimonial";
-import Partners from "@/components/organism/Partners";
+import Testimonial from "@/components/molecules/Testimonial";
+import Partners from "@/components/molecules/Partners";
 import Footer from "@/components/molecules/Footer";
 import Scroll from "@/components/atoms/Scroll";
 
 //resources
 import React from "react";
 import SEO from "@/config/seo";
-import { NextSeo } from "next-seo";
-import { next, ui } from "@/config/app";
-import { GetStaticProps } from "next";
+import {NextSeo} from "next-seo";
+import {next, ui} from "@/config/app";
+import {GetStaticProps} from "next";
 
 //data
-import { getCatalogs } from "@/data/request/catalogs";
+import {getCatalogs} from "@/data/request/catalogs";
 
 //types
 import ICatalog from "@/@types/catalog";
-import Cards from "@/components/organism/Cards";
+import Cards from "@/components/molecules/Cards";
 
 
 const heroProps = {
@@ -35,20 +35,19 @@ interface IProps {
   catalogs: ICatalog[];
 }
 
-export default function Pecas({ catalogs }: IProps) {
+export default function Pecas({catalogs}: IProps) {
 
   return (
     <>
       <NextSeo {...SEO.page.pecas} />
-      <NavBar />
+      <NavBar/>
       <Hero {...heroProps}>
         <Cta {...ctaProps} />
       </Hero>
-      <Cards variant="grid" cards={catalogs} />
-      <Scroll file={ui.scroll.src.light.down} />
-      <Testimonial bg="gray.50" />
-      <Partners />
-      <Footer />
+      <Cards variant="grid" cards={catalogs}/>
+      <Testimonial bg="gray.50"/>
+      <Partners/>
+      <Footer/>
     </>
   );
 };

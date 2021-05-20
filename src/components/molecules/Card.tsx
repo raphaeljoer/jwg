@@ -13,7 +13,7 @@ import {
 
 //core components
 import Text from '@/components/atoms/Text';
-import Button from "@/components/atoms/Button";
+import Button from "@/components/atoms/buttons/Button";
 import Tooltip from "@/components/atoms/Tooltip";
 
 //resources
