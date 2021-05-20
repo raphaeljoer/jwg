@@ -15,22 +15,23 @@ import {
   useBreakpointValue,
   useDisclosure
 }
-  from "@chakra-ui/react";
+from "@chakra-ui/react";
 //core components
+import Link from "@/components/atoms/Link";
 import Container from "@/components/molecules/Container"
 import Button from "@/components/atoms/buttons/Button";
 import Tooltip from "@/components/atoms/Tooltip";
 import Logo from "@/components/molecules/Logo";
+import Footer from "@/components/molecules/Footer";
+import ButtonCta from "@/components/atoms/buttons/ButtonCta";
 //resources
 import React from "react";
 import { FiSend } from "react-icons/fi";
 import { HiMenuAlt3 } from 'react-icons/hi';
+import { whatsapp, zIndex } from "@/config/app";
 //data
 import social from "@/data/static/social";
 import mainMenu from '@/data/static/menu';
-import { whatsapp, zIndex } from "@/config/app";
-import Footer from "./Footer";
-import Link from "@/components/atoms/Link";
 
 
 const displayMenu = () => (
@@ -38,18 +39,12 @@ const displayMenu = () => (
     <ButtonGroup spacing={2}>
       {mainMenu.map(({ label, link, icon }, index) => (
         <Link key={`${label}-${index}`} href={link} passHref>
-          <Button
+          <ButtonCta
+            variant="mainMenu"
             leftIcon={<Icon as={icon} color="orange.500" />}
-            borderRadius={12}
-            fontWeight={400}
-            colorScheme="transparent"
-            color="oilblue.10"
-            _hover={{ bgColor: "oilblue.600" }}
-            cursor="pointer"
-            variant="ghost"
-          >
+            >
             {label}
-          </Button>
+          </ButtonCta>
         </Link>
       ))}
     </ButtonGroup>
@@ -77,22 +72,13 @@ const displayContactButton = () => {
 
   return (
     <Flex gridArea="rightMenu" align="flex-end">
-      <Button
-        as="a"
-        ml={4}
-        borderRadius={12}
+      <ButtonCta
+        variant="rightMenu"
         leftIcon={<FiSend />}
-        color="orange.500"
-        border="1px"
-        _hover={{ bgColor: "orange.500", color: "oilblue.800" }}
-        h={12}
-        fontWeight={500}
-        variant="outline"
-        cursor="pointer"
         onClick={() => location.href = whatsapp.link}
-      >
+        >
         Contato
-      </Button>
+      </ButtonCta>
     </Flex>
   )
 };
@@ -110,11 +96,11 @@ const displayDrawer = (isDrawerOpen: boolean, onDrawerClose: () => void) => (
             {mainMenu.map(({ label, link, icon }, index) => {
               return (
                 <Link
-                  key={`${label}-${index}`}
-                  href={link}
-                  wait={300}
-                  onClick={onDrawerClose}
-                  ckLinkProps={{w: "full"}}
+                key={`${label}-${index}`}
+                href={link}
+                wait={300}
+                onClick={onDrawerClose}
+                ckLinkProps={{ w: "full" }}
                 >
                   <Button
                     leftIcon={<Icon as={icon} color="orange.500" mr={4} />}
@@ -127,7 +113,7 @@ const displayDrawer = (isDrawerOpen: boolean, onDrawerClose: () => void) => (
                     fontWeight={500}
                     cursor="pointer"
                     bgColor="transparent"
-                  >
+                    >
                     {label}
                   </Button>
                 </Link>
@@ -161,7 +147,7 @@ const displayMobileMenu = () => {
           size="lg"
           icon={<HiMenuAlt3 />}
           cursor="pointer"
-        />
+          />
       </Tooltip>
       {displayDrawer(isDrawerOpen, onDrawerClose)}
     </>
@@ -184,10 +170,10 @@ export const NavBar = () => {
   const isDesktop = useBreakpointValue({ base: false, lg: true });
   return (
     <Container
-      as="nav"
-      zIndex={zIndex.low}
-      position="absolute"
-      subContainerProps={{ h: 24, pt: 2 }}
+    as="nav"
+    zIndex={zIndex.low}
+    position="absolute"
+    subContainerProps={{ h: 24, pt: 2 }}
     >
       <Grid
         templateRows="1fr"
@@ -195,7 +181,7 @@ export const NavBar = () => {
         templateAreas={{ base: "'logo rightMenu'", lg: "'logo menu social rightMenu'" }}
         alignItems="center"
         h="full"
-      >
+        >
         {displayLogo()}
         {isDesktop && displayMenu()}
         {isDesktop && displaySocial()}
