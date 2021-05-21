@@ -1,5 +1,5 @@
 //chakra-ui
-import { Box, Flex, FlexProps, IconButton, Stack, useBreakpointValue } from '@chakra-ui/react';
+import { Box, Circle, Flex, FlexProps, HStack, IconButton, Stack, useBreakpointValue } from '@chakra-ui/react';
 //core components
 import Heading from '@/components/atoms/Heading';
 import Tooltip from '@/components/atoms/Tooltip';
@@ -21,6 +21,7 @@ interface CarouselProps extends FlexProps {
   spacing: number;
   fade?: boolean;
   title?: string;
+  items?: any[];
 }
 
 
@@ -51,7 +52,7 @@ const displayFade = () => {
 
 
 
-export const Carousel = ({ scrollStep, spacing, title, fade, tooltipProps, buttonProps, children, ...props }: CarouselProps) => {
+export const Carousel = ({ items, scrollStep, spacing, title, fade, tooltipProps, buttonProps, children, ...props }: CarouselProps) => {
 
   const partnersRef = useRef<HTMLDivElement>(null);
   const isTablet = useBreakpointValue({ base: false, md: true });

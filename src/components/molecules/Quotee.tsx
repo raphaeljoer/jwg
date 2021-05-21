@@ -1,16 +1,15 @@
 import { Box, BoxProps, Img, Text } from '@chakra-ui/react'
 import * as React from 'react'
 
-interface Props extends BoxProps {
+interface IProps extends BoxProps {
   name: string
   jobTitle: string
   imageSrc: string
 }
 
-export const Quotee = (props: Props) => {
-  const { name, jobTitle, imageSrc, ...boxProps } = props
+export const Quotee = ({ name, jobTitle, imageSrc, ...props }: IProps) => {
   return (
-    <Box {...boxProps}>
+    <Box {...props}>
       <Img src={imageSrc} mx="auto" objectFit="cover" w="16" h="16" rounded="full" />
       <Box mt="3">
         <Text as="cite" fontStyle="normal" fontWeight="bold" color="oilblue.400">

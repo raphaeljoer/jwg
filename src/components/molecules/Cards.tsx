@@ -13,10 +13,13 @@ import { FiArchive } from "react-icons/fi";
 import { getFormattedDate } from "@/utils/date";
 //type
 import ICatalog from "@/@types/catalog";
+import Scroll from "../atoms/Scroll";
+import { ui } from "@/config/app";
 
 export interface IProps {
   cards: ICatalog[];
   variant: "carousel" | "grid";
+  withScroll?: boolean;
 }
 
 const cardsConfig = {
@@ -76,7 +79,7 @@ const displayGrid = (cards: ICatalog[]) => {
   });
   return (
     <Container>
-      <Grid templateColumns={templateColumns} gap={12} rowGap={12} my={24} justifyItems="center">
+      <Grid templateColumns={templateColumns} gap={12} rowGap={12} mt={24} justifyItems="center">
         {cards.map(({ id, name, releaseDate, partner, url }) => (
           <Card
             key={id}
@@ -95,15 +98,16 @@ const displayGrid = (cards: ICatalog[]) => {
   );
 };
 
-export const Cards = ({ cards, variant }: IProps) => {
+export const Cards = ({ cards, withScroll, variant, ...props }: IProps) => {
   const templateSwitcher = {
     "carousel": displayCarousel(cards),
     "grid": displayGrid(cards)
   }
   return (
-    <Box as="section" w="full" bgColor="oilblue.10" pt={24} pb={40} position="relative">
+    <Box as="section" w="full" bgColor="oilblue.10" pt={24} pb={40} position="relative" {...props}>
       {displayTitle(cards)}
       {cards && templateSwitcher[variant]};
+      {withScroll && <Scroll file={ui.scroll.src.light.down} />}
     </Box>
   );
 };

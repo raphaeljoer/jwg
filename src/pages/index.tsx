@@ -15,9 +15,11 @@ import { GetStaticProps } from "next";
 import { next, whatsapp } from "@/config/app";
 //data
 import { getCatalogs } from "@/data/request/catalogs";
+import testimonials from "@/data/static/testimonials"
 //types
 import ICatalog from "@/@types/catalog";
 import ICtaProps from "@/@types/cta";
+import ITestimonial from "@/@types/testimonial";
 
 const heroProps = {
   image: "/assets/img/picture/hero-man-2.png",
@@ -34,6 +36,7 @@ const ctaProps: ICtaProps = {
 };
 interface IProps {
   catalogs: ICatalog[];
+  testimonials?: ITestimonial[];
 };
 
 export default function Home({ catalogs }: IProps) {
@@ -46,7 +49,7 @@ export default function Home({ catalogs }: IProps) {
       </Hero>
       <Cards variant="carousel" cards={catalogs} />
       <DataImpact />
-      <Testimonial />
+      <Testimonial testimonials={testimonials} />
       <Partners />
       <Footer />
     </>
