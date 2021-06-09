@@ -23,7 +23,7 @@ export interface IProps {
 }
 
 const cardsConfig = {
-  title: "Faça o download dos últimos catálogos lançados",
+  title: "Faça o download dos últimos lançamentos",
   noCards: "Em breve novos catálogos",
   button: {
     label: "Baixar catálogo"

@@ -13,6 +13,7 @@ import SEO from "@/config/seo";
 import { NextSeo } from "next-seo";
 import { GetStaticProps } from "next";
 import { next, whatsapp } from "@/config/app";
+import { FiPlayCircle } from "react-icons/fi";
 //data
 import { getCatalogs } from "@/data/request/catalogs";
 import testimonials from "@/data/static/testimonials"
@@ -20,6 +21,7 @@ import testimonials from "@/data/static/testimonials"
 import ICatalog from "@/@types/catalog";
 import ICtaProps from "@/@types/cta";
 import ITestimonial from "@/@types/testimonial";
+import { Button, ButtonProps } from "@chakra-ui/react";
 
 const heroProps = {
   image: "/assets/img/picture/hero-man-2.png",
@@ -27,13 +29,30 @@ const heroProps = {
 };
 
 const ctaProps: ICtaProps = {
+  color: "whiteAlpha.800",
+  upTitle: "Desde 2000",
   title: "Entregando confiança, credibilidade e inovação por todo nordeste",
-  description: "Somos o elo entre fornecedores e redes de distribuição",
+  description: "Somos o elo entre fornecedores e redes de distribuição.",
   button: {
-    label: "Fale com o especialista",
+    label: "Fale com o especialista agora",
     onClick: () => location.href = whatsapp.link
   }
 };
+
+const buttonProps: ButtonProps = {
+  variant: "ghost",
+  leftIcon: <FiPlayCircle />,
+  justifyContent: "flex-start",
+  color: "blue.500",
+  w: "fit-content",
+  _hover: { color: "blue.800", bgColor: "transparent" },
+  colorScheme: "blue",
+  _active: {
+    bg: "transparent",
+    transform: "scale(0.96)",
+  }
+}
+
 interface IProps {
   catalogs: ICatalog[];
   testimonials?: ITestimonial[];
@@ -45,7 +64,11 @@ export default function Home({ catalogs }: IProps) {
       <NextSeo {...SEO.page.home} />
       <NavBar />
       <Hero {...heroProps}>
-        <Cta {...ctaProps} />
+        <Cta {...ctaProps}>
+          <Button {...buttonProps}>
+            Assistir o video
+          </Button>
+        </Cta>
       </Hero>
       <Cards variant="carousel" cards={catalogs} />
       <DataImpact />

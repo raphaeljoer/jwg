@@ -11,7 +11,7 @@ import IButtonProps from "@/@types/button";
 import ButtonCta from "../atoms/buttons/ButtonCta";
 
 const displayButton = ({ label, onClick }: IButtonProps): JSX.Element => (
-  <Flex w="full" mt={10} justifyContent={{ base: "center", lg: "left" }}>
+  <Flex w="full" mt={10} mb={6} justifyContent={{ base: "center", lg: "left" }}>
     <ButtonCta
       leftIcon={<Icon as={FiSend} mr={2} fontSize={22} />}
       variant="hero"
