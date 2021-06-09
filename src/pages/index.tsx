@@ -60,18 +60,13 @@ interface IProps {
 };
 
 export default function Home({ catalogs }: IProps) {
-  const { isOpen, onOpen, onClose } = useDisclosure()
 
   return (
     <>
       <NextSeo {...SEO.page.home} />
       <NavBar />
       <Hero {...heroProps}>
-        <Cta {...ctaProps}>
-          <Button {...buttonProps} onClick={onOpen}>
-            Assistir o video
-          </Button>
-        </Cta>
+        <Cta {...ctaProps}/>
       </Hero>
       <Cards variant="carousel" cards={catalogs} />
       <DataImpact />
