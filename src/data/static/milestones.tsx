@@ -8,26 +8,26 @@ interface IMilestone {
 export const milestones: IMilestone[] = [
   {
     id: "ba823ba7-c037-41ee-89da-7074ed967df5",
-    number: "+130",
+    number: "57",
     title: "Parceiros",
-    desc: "Cada um com a sua especialidade para resolver seu problema."
+    desc: "Distribuido por todo nordeste"
   },
   {
     id: "a7071712-7890-4755-9ed5-57502ecfd1d6",
-    number: "+1.500",
+    number: "14.100",
     title: "Peças",
-    desc: "Vai ser difícil a gente não ter o que você está precisando."
+    desc: "Atendendo o mercado de linha leve e pesada"
   },
   {
     id: "fcaca3c2-802e-4b9a-8ffd-bc5dbd11bfb7",
-    number: "+12.000",
-    title: "Avaliações positivas",
-    desc: "Não basta entregar, aqui nosso lema é encantar."
+    number: "6",
+    title: "Segmentos",
+    desc: "Atuamos no segmentos de arrefecimento, elétrica, ingnição, injeção, mecânica e segurança patrimonial"
   },
   {
     id: "063d7029-2f0d-4768-840c-63a4a3dfec79",
-    number: "+130",
-    title: "Clientes fixos",
-    desc: "Acreditamos que as longas parcerias é que geram os melhores frutos."
+    number: "15",
+    title: "Anos",
+    desc: "Acreditamos que as longas parcerias são a chave do sucesso"
   }
 ]
