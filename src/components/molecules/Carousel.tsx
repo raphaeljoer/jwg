@@ -1,5 +1,6 @@
 //chakra-ui
-import { Box, Circle, Flex, FlexProps, HStack, IconButton, Stack, useBreakpointValue } from '@chakra-ui/react';
+import { Box, Flex, FlexProps, HStack, IconButton, Stack, useBreakpointValue } from '@chakra-ui/react';
+import { css } from '@emotion/react';
 //core components
 import Heading from '@/components/atoms/Heading';
 import Tooltip from '@/components/atoms/Tooltip';
@@ -12,7 +13,6 @@ interface ButtonProps {
   labelRight: string;
   labelLeft: string;
 }
-
 interface CarouselProps extends FlexProps {
   scrollStep: number;
   buttonProps?: ButtonProps;
@@ -23,8 +23,6 @@ interface CarouselProps extends FlexProps {
   title?: string;
   items?: any[];
 }
-
-
 
 const displayFade = () => {
   <>
@@ -93,7 +91,9 @@ export const Carousel = ({ items, scrollStep, spacing, title, fade, tooltipProps
           overflowX="scroll"
           css={{
             scrollSnapType: 'x mandatory',
-            scrollBehavior: 'smooth',
+            WebkitScrollSnapType: "x mandatory",
+            scrollBehavior: "smooth",
+            WebkitScrollBehavior: "smooth",
             WebkitOverflowScrolling: 'touch',
             msOverflowStyle: 'none', /* IE and Edge */
             scrollbarWidth: 'none', /* Firefox */

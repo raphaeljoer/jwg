@@ -7,7 +7,7 @@ import {
   useBreakpointValue,
   Image as CkImage,
   Flex,
-} from "@chakra-ui/react"
+} from "@chakra-ui/react";
 
 //core components
 import Text from '@/components/atoms/Text';
@@ -34,7 +34,8 @@ export interface ICardProps extends BoxProps {
 const getCSSProps = () => {
   const margin = useBreakpointValue({ base: 24, md: 32, lg: 96 });
   return {
-    scrollSnapAlign: 'center',
+    scrollSnapAlign: "center",
+    WebkitScrollSnapAlign: "center",
     '&:first-of-type': { marginLeft: margin },
     '&:last-of-type': { marginRight: margin },
   }

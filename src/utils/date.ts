@@ -1,10 +1,8 @@
 import moment from "moment"
-
 interface IGetFormattedDate {
   date?: string;
   format: string;
 };
-
 interface IIsSame {
   date?: string;
   dateToCompare: string;

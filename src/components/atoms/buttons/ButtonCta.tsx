@@ -1,16 +1,14 @@
 //chakra-ui
 import { ButtonProps } from '@chakra-ui/react';
-
 //core components
 import Button from "@/components/atoms/buttons/Button";
-
 //resources
-import React, { ReactElement } from 'react';
+import React from 'react';
 
 interface IProps extends ButtonProps {
   variant: "hero" | "mainMenu" | "rightMenu" | "mobileMenu";
   color: "orange1" | "orange2" | "oilblue1" | "oilblue2" | "transparent";
-  children: string | ReactElement;
+  children: string | JSX.Element;
 }
 interface VariantProps {
   hero: ButtonProps;

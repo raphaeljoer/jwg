@@ -63,7 +63,7 @@ const displayHeroPicture = (element: IHeroProps["element"], image: IHeroProps["i
   </Box>
 );
 
-const Hero = ({ element, image, children, ...props }: IHeroProps) => {
+const Hero = ({ element, image, children, ...props }: IHeroProps): JSX.Element => {
   if(!children) throw new Error("Children is mandatory");
   const isDesktop = useBreakpointValue({ base: false, lg: true });
   return (
