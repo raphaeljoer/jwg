@@ -1,3 +1,4 @@
+import { AspectRatio, Button, ButtonProps, useDisclosure } from "@chakra-ui/react";
 //core components
 import Cta from "@/components/molecules/Cta";
 import Hero from "@/components/molecules/Hero";
@@ -21,7 +22,7 @@ import testimonials from "@/data/static/testimonials"
 import ICatalog from "@/@types/catalog";
 import ICtaProps from "@/@types/cta";
 import ITestimonial from "@/@types/testimonial";
-import { Button, ButtonProps } from "@chakra-ui/react";
+import Modal from "@/components/molecules/Modal";
 
 const heroProps = {
   image: "/assets/img/picture/hero-man-2.png",
@@ -59,13 +60,15 @@ interface IProps {
 };
 
 export default function Home({ catalogs }: IProps) {
+  const { isOpen, onOpen, onClose } = useDisclosure()
+
   return (
     <>
       <NextSeo {...SEO.page.home} />
       <NavBar />
       <Hero {...heroProps}>
         <Cta {...ctaProps}>
-          <Button {...buttonProps}>
+          <Button {...buttonProps} onClick={onOpen}>
             Assistir o video
           </Button>
         </Cta>
