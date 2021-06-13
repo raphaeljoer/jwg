@@ -22,6 +22,7 @@ import testimonials from "@/data/static/testimonials"
 import ICatalog from "@/@types/catalog";
 import Cards from "@/components/molecules/Cards";
 import testimonial from "@/@types/testimonial";
+import Whatsapp from "@/components/atoms/buttons/whatsapp";
 
 
 const heroProps = {
@@ -40,6 +41,7 @@ interface IProps {
 export default function Pecas({ catalogs }: IProps) {
   return (
     <>
+      <Whatsapp />
       <NextSeo {...SEO.page.pecas} />
       <NavBar />
       <Hero {...heroProps}>

@@ -1,4 +1,4 @@
-import { AspectRatio, Button, ButtonProps, useDisclosure } from "@chakra-ui/react";
+import { AspectRatio, Button, ButtonProps, Flex, Icon, useDisclosure, Image, Text } from "@chakra-ui/react";
 //core components
 import Cta from "@/components/molecules/Cta";
 import Hero from "@/components/molecules/Hero";
@@ -13,7 +13,7 @@ import React from "react";
 import SEO from "@/config/seo";
 import { NextSeo } from "next-seo";
 import { GetStaticProps } from "next";
-import { next, whatsapp } from "@/config/app";
+import { next, ui, whatsapp, zIndex } from "@/config/app";
 import { FiPlayCircle } from "react-icons/fi";
 //data
 import { getCatalogs } from "@/data/request/catalogs";
@@ -23,6 +23,8 @@ import ICatalog from "@/@types/catalog";
 import ICtaProps from "@/@types/cta";
 import ITestimonial from "@/@types/testimonial";
 import Modal from "@/components/molecules/Modal";
+import Link from "@/components/atoms/Link";
+import Whatsapp from "@/components/atoms/buttons/whatsapp";
 
 const heroProps = {
   image: "/assets/img/picture/hero-man-2.png",
@@ -63,10 +65,11 @@ export default function Home({ catalogs }: IProps) {
 
   return (
     <>
+      <Whatsapp/>
       <NextSeo {...SEO.page.home} />
       <NavBar />
       <Hero {...heroProps}>
-        <Cta {...ctaProps}/>
+        <Cta {...ctaProps} />
       </Hero>
       <Cards variant="carousel" cards={catalogs} />
       <DataImpact />

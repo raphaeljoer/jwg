@@ -5,7 +5,7 @@ export const graphql = {
 
 export const next = {
   revalidate: {
-   oneMinute: 60
+    oneMinute: 60
   }
 };
 
@@ -31,8 +31,10 @@ export const ui = {
     height: "37",
     alt: "scroll"
   },
-  noImage: "/img/ui-elements/no-image.svg"
-};
+  whatsapp: {
+    src: "/assets/ui/whatsapp.svg"
+  }
+}
 
 export const nextNprogress = {
   color: "#FF6700",
