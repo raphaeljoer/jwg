@@ -48,7 +48,7 @@ export const Cta = (
         </Tag>
       )}
       {upTitle && (
-        <Text lineHeight="150%" mb={4} {...upTitleProps}>
+        <Text textAlign={{base: "center", lg: "left"}} lineHeight="150%" mb={4} {...upTitleProps}>
           {upTitle}
         </Text>
       )}

@@ -10,7 +10,7 @@ export const Whatsapp = () => {
     <Flex
       p={4}
       w="100vw"
-      justify="flex-end"
+      justify={{base: "center", sm: "flex-end"}}
       pos="fixed"
       bottom={0}
       zIndex={zIndex.high}
@@ -25,7 +25,7 @@ export const Whatsapp = () => {
           rounded="full"
           boxShadow="xl"
           _hover={{ bgColor: "ice.600", transform: "scale(0.99)" }}
-          opacity={0.95}
+          opacity={0.98}
         >
           <Text mx={4}>Fale agora com o especialista</Text>
           <Image src={ui.whatsapp.src} boxSize={12} ml="auto" mr={1} />
